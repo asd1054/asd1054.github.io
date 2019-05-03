@@ -414,6 +414,14 @@
           
 
   
+    <div class="comments" id="comments">
+      
+        <div onclick="showGitment()" id="gitment-display-button">显示 Gitment 评论</div>
+        <div id="gitment-container" style="display: none"></div>
+      
+    </div>
+
+  
 
 
 
@@ -718,6 +726,44 @@
 
   
 
+
+  
+    <!-- LOCAL: You can save these files to your site and update links -->
+
+  
+  <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitmint.browser.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.css">
+<!-- END LOCAL -->
+
+<script>
+  function renderGitment() {
+    var gitment = new Gitmint({
+      id: window.location.pathname,
+      owner: 'asd1054# MUST HAVE, Your Github Username',
+      repo: 'blog_comments',
+      
+        lang: '' || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+      
+      oauth: {
+      
+      
+        client_secret: '2b1525984a42e7b45929cd318b95f46cf3bdd9b3',
+      
+        client_id: '52859e350cb3cb26472c'
+      }
+    });
+    gitment.render('gitment-container');
+  }
+
+  
+    function showGitment() {
+      document.getElementById('gitment-display-button').style.display = 'none';
+      document.getElementById('gitment-container').style.display = 'block';
+      renderGitment();
+    }
+  
+</script>
 
   
 
