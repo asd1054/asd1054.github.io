@@ -21,7 +21,7 @@
   <entry>
     <title><![CDATA[第一篇文章]]></title>
     <url>%2F2019%2F05%2F03%2F%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%2F</url>
-    <content type="text"><![CDATA[我的第一篇文章#猜猜有多少人看呢？？# 你答对了嘛？？ [ ] (sada) ‘ sad’ asdas 12&lt;html&gt;&lt;/html&gt; nihaowoshishui 123456789```flowst=&gt;start: 开始op=&gt;operation: My Operationcond=&gt;condition: Yes or No?e=&gt;endst-&gt;op-&gt;condcond(yes)-&gt;econd(no)-&gt;op&amp;``` [x] sad [ ] B [x] A[ ] B 已选中 [ ] 未选中 [ ] $\frac{1}{2}$ $c^{2}=a^{2}+b^{2}$ $\TeX{}$ is pronounced as$\tau\epsilon\chi$.\[6pt]100~m$^{3}$ of water\[6pt]This comes from my $\heartsuit$ $\alpha$]]></content>
+    <content type="text"><![CDATA[我的第一篇文章#猜猜有多少人看呢？？# 你答对了嘛？？ [ ] (sada) ‘ sad’ asdas 12&lt;html&gt;&lt;/html&gt; nihaowoshishui 1&lt;div id=&quot;flowchart-0&quot; class=&quot;flow-chart&quot;&gt;&lt;/div&gt; [x] sad [ ] B [x] A[ ] B 已选中 [ ] 未选中 [ ] $\frac{1}{2}$ $c^{2}=a^{2}+b^{2}$ $\TeX{}$ is pronounced as$\tau\epsilon\chi$.\[6pt]100~m$^{3}$ of water\[6pt]This comes from my $\heartsuit$ $\alpha$st=>start: 开始 op=>operation: My Operation cond=>condition: Yes or No? e=>end st->op->cond cond(yes)->e cond(no)->op &{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12} var code = document.getElementById("flowchart-0-code").value; var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-0-options").value)); var diagram = flowchart.parse(code); diagram.drawSVG("flowchart-0", options);]]></content>
       <categories>
         <category>吾空杂谈</category>
       </categories>

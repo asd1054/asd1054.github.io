@@ -410,6 +410,8 @@
   
 
   
+    <div class="reading-progress-bar"></div>
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
@@ -1035,7 +1037,7 @@
     
       <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center;">
   <img id="wechat_subscriber_qcode" src="/images/wechat-qrcode.jpg" alt="wukong wechat" style="width: 200px; max-width: 100%;">
-  <div>吾空的微信公众号，暂未运营，没时间，先挂着看看</div>
+  <div>欢迎您扫一扫上面的微信公众号( 或者搜索：WK_wwxk )订阅吾空的微信公众号<br>┭┮﹏┭┮学业繁忙，暂未运营，没时间，先挂着瞅瞅，嘿嘿</div>
 </div>
 
     
@@ -1046,7 +1048,7 @@
     
       <div>
         <div id="reward-container">
-  <div>你可以对我打赏了哦！！！</div>
+  <div>可以对我进行打赏了哦！！！<br>如果觉得本文对您有启发，可以随意打赏一点鼓励我继续更新！</div>
   <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
     打赏
   </button>
@@ -1303,10 +1305,10 @@
 
           
           
-            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
               <div class="links-of-blogroll-title">
                 <i class="fa  fa-fw fa-link"></i>
-                Links
+                常用网站
               </div>
               <ul class="links-of-blogroll-list">
                 
@@ -1400,7 +1402,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共895字</span>
+  <span class="post-count">博客全站共949字</span>
 </div>
         
 <div class="busuanzi-count">
@@ -1428,6 +1430,8 @@
     
       <div class="back-to-top">
         <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
         
       </div>
     
@@ -1482,6 +1486,8 @@
 
 
 
+  
+
 
 
   
@@ -1492,6 +1498,9 @@
 
   
   <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/reading_progress/reading_progress.js"></script>
 
 
   
@@ -1954,6 +1963,15 @@
   
 
   
+  
+  
+  <script src="/lib/bookmark/bookmark.min.js?v=1.0"></script>
+  <script>
+  
+    bookmark.scrollToMark('auto', "#更多");
+  
+  </script>
+
 
   
 <script>

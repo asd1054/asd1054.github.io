@@ -410,6 +410,8 @@
   
 
   
+    <div class="reading-progress-bar"></div>
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
@@ -556,7 +558,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
 <html><br><br>nihao<br><br><title>woshishui</title><br><br></html>
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">```flow</span><br><span class="line">st=&gt;start: 开始</span><br><span class="line">op=&gt;operation: My Operation</span><br><span class="line">cond=&gt;condition: Yes or No?</span><br><span class="line">e=&gt;end</span><br><span class="line">st-&gt;op-&gt;cond</span><br><span class="line">cond(yes)-&gt;e</span><br><span class="line">cond(no)-&gt;op</span><br><span class="line">&amp;```</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;flowchart-0&quot; class=&quot;flow-chart&quot;&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
 <p>[x] sad</p>
 <p>[ ] B</p>
 <p>[x] A<br>[ ] B</p>
@@ -570,7 +572,14 @@
 <p>$\frac{1}{2}$</p>
 <p>$c^{2}=a^{2}+b^{2}$</p>
 <p>$\TeX{}$ is pronounced as<br>$\tau\epsilon\chi$.\[6pt]<br>100~m$^{3}$ of water\[6pt]<br>This comes from my $\heartsuit$</p>
-<p>$\alpha$</p>
+<p>$\alpha$<script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script><textarea id="flowchart-0-code" style="display: none">st=>start: 开始
+op=>operation: My Operation
+cond=>condition: Yes or No?
+e=>end
+st->op->cond
+cond(yes)->e
+cond(no)->op
+&</textarea><textarea id="flowchart-0-options" style="display: none">{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-0-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-0", options);</script></p>
 
       
     </div>
@@ -584,7 +593,7 @@
     
       <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center;">
   <img id="wechat_subscriber_qcode" src="/images/wechat-qrcode.jpg" alt="wukong wechat" style="width: 200px; max-width: 100%;">
-  <div>吾空的微信公众号，暂未运营，没时间，先挂着看看</div>
+  <div>欢迎您扫一扫上面的微信公众号( 或者搜索：WK_wwxk )订阅吾空的微信公众号<br>┭┮﹏┭┮学业繁忙，暂未运营，没时间，先挂着瞅瞅，嘿嘿</div>
 </div>
 
     
@@ -595,7 +604,7 @@
     
       <div>
         <div id="reward-container">
-  <div>你可以对我打赏了哦！！！</div>
+  <div>可以对我进行打赏了哦！！！<br>如果觉得本文对您有启发，可以随意打赏一点鼓励我继续更新！</div>
   <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
     打赏
   </button>
@@ -844,10 +853,10 @@
 
           
           
-            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
               <div class="links-of-blogroll-title">
                 <i class="fa  fa-fw fa-link"></i>
-                Links
+                常用网站
               </div>
               <ul class="links-of-blogroll-list">
                 
@@ -941,7 +950,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共895字</span>
+  <span class="post-count">博客全站共949字</span>
 </div>
         
 <div class="busuanzi-count">
@@ -969,6 +978,8 @@
     
       <div class="back-to-top">
         <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
         
       </div>
     
@@ -1023,6 +1034,8 @@
 
 
 
+  
+
 
 
   
@@ -1033,6 +1046,9 @@
 
   
   <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/reading_progress/reading_progress.js"></script>
 
 
   
@@ -1495,6 +1511,15 @@
   
 
   
+  
+  
+  <script src="/lib/bookmark/bookmark.min.js?v=1.0"></script>
+  <script>
+  
+    bookmark.scrollToMark('auto', "#更多");
+  
+  </script>
+
 
   
 <script>
