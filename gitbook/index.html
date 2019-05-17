@@ -16,7 +16,7 @@
 
 <html class="theme-next gemini use-motion" lang="zh-CN">
 <head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="UTF-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
@@ -121,18 +121,18 @@
         }
     })();
 </script>
-  <meta name="description" content="各种书籍#python系列# python之基础教程  CTF# 第一次写CTF的WRITEUP —未完待续  英语# 1468个单词就够了   —-还在路上">
+  <meta name="description" content="各种书籍#python系列# python之基础教程  CTF# 第一次写CTF的WRITEUP —-未完待续  英语# 1468个单词就够了   ——还在路上">
 <meta name="keywords" content="吾王星空">
 <meta property="og:type" content="website">
 <meta property="og:title" content="gitbook">
 <meta property="og:url" content="https://asd1054.github.io/gitbook/index.html">
 <meta property="og:site_name" content="吾空——吾王星空">
-<meta property="og:description" content="各种书籍#python系列# python之基础教程  CTF# 第一次写CTF的WRITEUP —未完待续  英语# 1468个单词就够了   —-还在路上">
+<meta property="og:description" content="各种书籍#python系列# python之基础教程  CTF# 第一次写CTF的WRITEUP —-未完待续  英语# 1468个单词就够了   ——还在路上">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-05-10T08:34:34.144Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="gitbook">
-<meta name="twitter:description" content="各种书籍#python系列# python之基础教程  CTF# 第一次写CTF的WRITEUP —未完待续  英语# 1468个单词就够了   —-还在路上">
+<meta name="twitter:description" content="各种书籍#python系列# python之基础教程  CTF# 第一次写CTF的WRITEUP —-未完待续  英语# 1468个单词就够了   ——还在路上">
 
 
 
@@ -187,7 +187,7 @@
   .use-motion .logo-line-before i { left: initial; }
   .use-motion .logo-line-after i { right: initial; }
   </style>
-</noscript>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </head>
 
@@ -198,7 +198,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -456,10 +456,10 @@
 <p><strong><a href="/python_basic">python之基础教程</a></strong></p>
 </blockquote>
 <h2><span id="ctf">CTF</span><a href="#ctf" class="header-anchor">#</a></h2><blockquote>
-<p><a href="/bugku_first_wp">第一次写CTF的WRITEUP</a> —未完待续</p>
+<p><a href="/bugku_first_wp">第一次写CTF的WRITEUP</a> —-未完待续</p>
 </blockquote>
 <h2><span id="ying-yu">英语</span><a href="#ying-yu" class="header-anchor">#</a></h2><blockquote>
-<p>1468个单词就够了   —-还在路上</p>
+<p>1468个单词就够了   ——还在路上</p>
 </blockquote>
 
         
@@ -538,7 +538,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-count">5</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -590,7 +590,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">6</span>
+                      
+                    
+                    <span class="site-state-item-count">7</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -731,7 +733,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共1.7k字</span>
+  <span class="post-count">博客全站共3.1k字</span>
 </div>
         
 <div class="busuanzi-count">
@@ -1244,6 +1246,53 @@
   
 
   
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
+        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
+      }
+    });
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      document.getElementById(all[i].inputID + '-Frame').parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
 
   
 
@@ -1336,7 +1385,24 @@
       }, 300);
     }).append(e);
   })
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
 </script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
 
   
