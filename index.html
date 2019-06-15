@@ -416,6 +416,347 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://asd1054.github.io/2019/06/15/计算机漏洞安全相关的概念POC-EXP-VUL-CVE-0DAY/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wukong">
+      <meta itemprop="description" content="吾王星空的个人空间，主要涉及到编程（Python，Linux等），个人提升学习等教程，">
+      <meta itemprop="image" content="/images/wukong.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="吾空——吾王星空">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/06/15/计算机漏洞安全相关的概念POC-EXP-VUL-CVE-0DAY/" class="post-title-link" itemprop="url">计算机漏洞安全相关的概念POC | EXP | VUL | CVE | 0DAY</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-06-15 22:01:43 / 修改时间：22:03:09" itemprop="dateCreated datePublished" datetime="2019-06-15T22:01:43+08:00">2019-06-15</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/网络安全知识/" itemprop="url" rel="index"><span itemprop="name">网络安全知识</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1.POC</p>
+<p>​        <em>POC<strong>，</strong>Proof ofConcept<strong>，中文意思是“观点证明”。这个短语会在漏洞报告中使用，</strong>漏洞报告中的<strong>POC</strong>则是一段说明或者一个攻击的样例，使得读者能够确认这个漏洞是真实存在的。</em></p>
+<p>2.EXP</p>
+<p>​        <em>EXP<strong>，</strong>Exploit**，中文意思是“漏洞利用”。意思是一段对漏洞如何利用的详细说明或者一个演示的漏洞攻击代码，可以使得读者完全了解漏洞的机理以及利用的方法。</em></p>
+<p>3.VUL</p>
+<p>  <em>VUL<strong>，</strong>V**ulnerability的缩写，泛指漏洞。</em></p>
+<p><em>4.CVE**漏洞编号</em></p>
+<p>  <em>CVE 的英文全称是“<strong>Common Vulnerabilities &amp; Exposures”公共漏洞和暴露</strong>，例如CVE-2015-0057、CVE-1999-0001等等<strong>。CVE就好像是一个字典表，为广泛认同的信息安全漏洞或者已经暴露出来的弱点给出一个公共的名称。</strong>如果在一个漏洞报告中指明的一个漏洞，如果有**CVE名称，你就可以快速地在任何其它CVE兼容的数据库中找到相应修补的信息，解决安全问题。</em></p>
+<p><em>可以在<a href="https://cve.mitre.org/网站根据漏洞的**CVE**编号搜索该漏洞的介绍。" target="_blank" rel="noopener">https://cve.mitre.org/网站根据漏洞的**CVE**编号搜索该漏洞的介绍。</a></em></p>
+<p>也可以在中文社区<a href="http://www.scap.org.cn/上搜索关于漏洞的介绍" target="_blank" rel="noopener">http://www.scap.org.cn/上搜索关于漏洞的介绍</a></p>
+<p><em>5.0DAY<strong>漏洞和</strong>0DAY**攻击</em></p>
+<p>​        <em>在计算机领域中，零日漏洞或零时差漏洞（英语：**Zero-dayexploit）通常是指还没有补丁的安全漏洞，而零日攻击或零时差攻击（英语：Zero-dayattack）则是指利用这种漏洞进行的攻击。提供该漏洞细节或者利用程序的人通常是该漏洞的发现者。零日漏洞的利用程序对网络安全具有巨大威胁，因此零日漏洞不但是黑客的最爱，掌握多少零日漏洞也成为评价黑客技术水平的一个重要参数。</em></p>
+<p><em>零日漏洞及其利用代码不仅对犯罪黑客而言，具有极高的利用价值，一些国家间谍和网军部队，例如美国国家安全局和美国网战司令部也非常重视这些信息<strong>[1]。据路透社报告称美国政府是零日漏洞黑市的最大买家</strong>。</em></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://asd1054.github.io/2019/06/13/单纯型动词/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wukong">
+      <meta itemprop="description" content="吾王星空的个人空间，主要涉及到编程（Python，Linux等），个人提升学习等教程，">
+      <meta itemprop="image" content="/images/wukong.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="吾空——吾王星空">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/06/13/单纯型动词/" class="post-title-link" itemprop="url">单纯型动词</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-06-13 14:58:48 / 修改时间：15:33:18" itemprop="dateCreated datePublished" datetime="2019-06-13T14:58:48+08:00">2019-06-13</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/1368个单词就够了/" itemprop="url" rel="index"><span itemprop="name">1368个单词就够了</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>单纯型动词：广交天下朋友</p>
+<p>顾名思义：就是指那些“涉世不深”，一眼就能看看透的词。这些词义非常简单，正因为单纯、不设防，所以可以和很多介词或其他词交上朋友，搭配出丰富的意义来。</p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/06/13/单纯型动词/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://asd1054.github.io/2019/06/07/属性类名词/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1801,188 +2142,13 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://asd1054.github.io/2019/05/03/第一篇文章/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wukong">
-      <meta itemprop="description" content="吾王星空的个人空间，主要涉及到编程（Python，Linux等），个人提升学习等教程，">
-      <meta itemprop="image" content="/images/wukong.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="吾空——吾王星空">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/05/03/第一篇文章/" class="post-title-link" itemprop="url">第一篇文章</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-05-03 15:49:04" itemprop="dateCreated datePublished" datetime="2019-05-03T15:49:04+08:00">2019-05-03</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-05-04 13:07:10" itemprop="dateModified" datetime="2019-05-04T13:07:10+08:00">2019-05-04</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/吾空杂谈/" itemprop="url" rel="index"><span itemprop="name">吾空杂谈</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="我的第一篇文章"><a href="#我的第一篇文章" class="headerlink" title="我的第一篇文章"></a>我的第一篇文章</h1><h2 id="猜猜有多少人看呢？？"><a href="#猜猜有多少人看呢？？" class="headerlink" title="猜猜有多少人看呢？？"></a>猜猜有多少人看呢？？</h2>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/05/03/第一篇文章/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
 
 
           </div>
@@ -2024,7 +2190,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-count">11</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2049,7 +2215,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">4</span>
+                      
+                    
+                    <span class="site-state-item-count">5</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -2208,7 +2376,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共4k字</span>
+  <span class="post-count">博客全站共5.2k字</span>
 </div>
         
 <div class="busuanzi-count">
@@ -2691,9 +2859,11 @@
       
     
       
-        
+    
       
     
+      
+        
       
     
       
