@@ -416,6 +416,388 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://asd1054.github.io/2019/06/16/python自带pdb调试/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wukong">
+      <meta itemprop="description" content="吾王星空的个人空间，主要涉及到编程（Python，Linux等），个人提升学习等教程，">
+      <meta itemprop="image" content="/images/wukong.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="吾空——吾王星空">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/06/16/python自带pdb调试/" class="post-title-link" itemprop="url">python自带pdb调试</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-06-16 17:22:21 / 修改时间：17:26:51" itemprop="dateCreated datePublished" datetime="2019-06-16T17:22:21+08:00">2019-06-16</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python小技巧/" itemprop="url" rel="index"><span itemprop="name">python小技巧</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3><span id="shi-yong-pdb-jin-xing-diao-shi">使用pdb进行调试：</span><a href="#shi-yong-pdb-jin-xing-diao-shi" class="header-anchor">#</a></h3><p>pdb 是 python 自带的一个包，为 python 程序提供了一种交互的源代码调试功能，主要特性包括设置断点、单步调试、进入函数调试、查看当前代码、查看栈片段、动态改变变量的值等。pdb 提供了一些常用的调试命令，详情见表 1。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>break 或 b 设置断点</td>
+<td>设置断点</td>
+</tr>
+<tr>
+<td>continue 或 c</td>
+<td>继续执行程序</td>
+</tr>
+<tr>
+<td>list 或 l</td>
+<td>查看当前行的代码段</td>
+</tr>
+<tr>
+<td>step 或 s</td>
+<td>进入函数</td>
+</tr>
+<tr>
+<td>return 或 r</td>
+<td>执行代码直到从当前函数返回</td>
+</tr>
+<tr>
+<td>exit 或 q</td>
+<td>中止并退出</td>
+</tr>
+<tr>
+<td>next 或 n</td>
+<td>执行下一行</td>
+</tr>
+<tr>
+<td>pp</td>
+<td>打印变量的值</td>
+</tr>
+<tr>
+<td>help</td>
+<td>帮助</td>
+</tr>
+</tbody>
+</table>
+</div>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pdb </span><br><span class="line">a = <span class="string">"aaa"</span></span><br><span class="line">pdb.set_trace()  <span class="comment">#下断点的地方</span></span><br><span class="line">b = <span class="string">"bbb"</span></span><br><span class="line">c = <span class="string">"ccc"</span></span><br><span class="line">final = a + b + c </span><br><span class="line"><span class="keyword">print</span> final</span><br></pre></td></tr></table></figure>
+<p>复制上面代码，在ipython中执行，就能开始调试了，或者脚本文件直接运行也可。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://asd1054.github.io/2019/06/16/windows下pip换源/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wukong">
+      <meta itemprop="description" content="吾王星空的个人空间，主要涉及到编程（Python，Linux等），个人提升学习等教程，">
+      <meta itemprop="image" content="/images/wukong.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="吾空——吾王星空">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/06/16/windows下pip换源/" class="post-title-link" itemprop="url">windows下pip换源</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-06-16 17:19:05 / 修改时间：17:23:43" itemprop="dateCreated datePublished" datetime="2019-06-16T17:19:05+08:00">2019-06-16</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python小技巧/" itemprop="url" rel="index"><span itemprop="name">python小技巧</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ol>
+<li>打开appdata文件夹，在资源管理器的地址栏输入<code>%appdata%</code>后回车</li>
+</ol>
+<ol>
+<li>新建一个pip文件夹，在pip文件夹里面新建一个配置文件<code>pip.ini</code></li>
+</ol>
+<p>在pip.ini中添加如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[global]</span><br><span class="line">timeout = 6000</span><br><span class="line">index-url = https://pypi.tuna.tsinghua.edu.cn/simple</span><br><span class="line">trusted-host = pypi.tuna.tsinghua.edu.cn</span><br></pre></td></tr></table></figure>
+<p>这是换成清华的源，在国内还是挺快的。如果要换成公司的源的话，相应的把清华网站改成公司网站即可。</p>
+<p>如豆瓣：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[global] </span><br><span class="line">index-url = https://pypi.douban.com/simple </span><br><span class="line">[install]</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://asd1054.github.io/2019/06/15/计算机漏洞安全相关的概念POC-EXP-VUL-CVE-0DAY/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -461,7 +843,7 @@
                 
               
 
-              <time title="创建时间：2019-06-15 22:01:43 / 修改时间：22:03:09" itemprop="dateCreated datePublished" datetime="2019-06-15T22:01:43+08:00">2019-06-15</time>
+              <time title="创建时间：2019-06-15 22:01:43 / 修改时间：22:03:58" itemprop="dateCreated datePublished" datetime="2019-06-15T22:01:43+08:00">2019-06-15</time>
             
 
             
@@ -519,22 +901,17 @@
 
       
         
-          
-            <p>1.POC</p>
+          <p>1.POC</p>
 <p>​        <em>POC<strong>，</strong>Proof ofConcept<strong>，中文意思是“观点证明”。这个短语会在漏洞报告中使用，</strong>漏洞报告中的<strong>POC</strong>则是一段说明或者一个攻击的样例，使得读者能够确认这个漏洞是真实存在的。</em></p>
-<p>2.EXP</p>
-<p>​        <em>EXP<strong>，</strong>Exploit**，中文意思是“漏洞利用”。意思是一段对漏洞如何利用的详细说明或者一个演示的漏洞攻击代码，可以使得读者完全了解漏洞的机理以及利用的方法。</em></p>
-<p>3.VUL</p>
-<p>  <em>VUL<strong>，</strong>V**ulnerability的缩写，泛指漏洞。</em></p>
-<p><em>4.CVE**漏洞编号</em></p>
-<p>  <em>CVE 的英文全称是“<strong>Common Vulnerabilities &amp; Exposures”公共漏洞和暴露</strong>，例如CVE-2015-0057、CVE-1999-0001等等<strong>。CVE就好像是一个字典表，为广泛认同的信息安全漏洞或者已经暴露出来的弱点给出一个公共的名称。</strong>如果在一个漏洞报告中指明的一个漏洞，如果有**CVE名称，你就可以快速地在任何其它CVE兼容的数据库中找到相应修补的信息，解决安全问题。</em></p>
-<p><em>可以在<a href="https://cve.mitre.org/网站根据漏洞的**CVE**编号搜索该漏洞的介绍。" target="_blank" rel="noopener">https://cve.mitre.org/网站根据漏洞的**CVE**编号搜索该漏洞的介绍。</a></em></p>
-<p>也可以在中文社区<a href="http://www.scap.org.cn/上搜索关于漏洞的介绍" target="_blank" rel="noopener">http://www.scap.org.cn/上搜索关于漏洞的介绍</a></p>
-<p><em>5.0DAY<strong>漏洞和</strong>0DAY**攻击</em></p>
-<p>​        <em>在计算机领域中，零日漏洞或零时差漏洞（英语：**Zero-dayexploit）通常是指还没有补丁的安全漏洞，而零日攻击或零时差攻击（英语：Zero-dayattack）则是指利用这种漏洞进行的攻击。提供该漏洞细节或者利用程序的人通常是该漏洞的发现者。零日漏洞的利用程序对网络安全具有巨大威胁，因此零日漏洞不但是黑客的最爱，掌握多少零日漏洞也成为评价黑客技术水平的一个重要参数。</em></p>
-<p><em>零日漏洞及其利用代码不仅对犯罪黑客而言，具有极高的利用价值，一些国家间谍和网军部队，例如美国国家安全局和美国网战司令部也非常重视这些信息<strong>[1]。据路透社报告称美国政府是零日漏洞黑市的最大买家</strong>。</em></p>
-
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/06/15/计算机漏洞安全相关的概念POC-EXP-VUL-CVE-0DAY/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1796,352 +2173,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://asd1054.github.io/2019/05/06/树莓派常见命令整理/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wukong">
-      <meta itemprop="description" content="吾王星空的个人空间，主要涉及到编程（Python，Linux等），个人提升学习等教程，">
-      <meta itemprop="image" content="/images/wukong.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="吾空——吾王星空">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/05/06/树莓派常见命令整理/" class="post-title-link" itemprop="url">树莓派常见命令整理</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-05-06 20:10:18" itemprop="dateCreated datePublished" datetime="2019-05-06T20:10:18+08:00">2019-05-06</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-06-07 14:41:27" itemprop="dateModified" datetime="2019-06-07T14:41:27+08:00">2019-06-07</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="暂无时间"><a href="#暂无时间" class="headerlink" title="## 暂无时间"></a>## 暂无时间</h1>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/05/06/树莓派常见命令整理/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://asd1054.github.io/2019/05/03/具体名词/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wukong">
-      <meta itemprop="description" content="吾王星空的个人空间，主要涉及到编程（Python，Linux等），个人提升学习等教程，">
-      <meta itemprop="image" content="/images/wukong.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="吾空——吾王星空">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/05/03/具体名词/" class="post-title-link" itemprop="url">具体名词</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-05-03 22:13:05" itemprop="dateCreated datePublished" datetime="2019-05-03T22:13:05+08:00">2019-05-03</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-05-10 21:38:40" itemprop="dateModified" datetime="2019-05-10T21:38:40+08:00">2019-05-10</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/1368个单词就够了/" itemprop="url" rel="index"><span itemprop="name">1368个单词就够了</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>名词四大家族：</p>
-<ul>
-<li>具体名词</li>
-<li>抽象名词</li>
-<li>构成类名词</li>
-<li>属性类名词</li>
-</ul>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/05/03/具体名词/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2190,7 +2221,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-count">13</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2217,7 +2248,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">5</span>
+                      
+                    
+                    <span class="site-state-item-count">6</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -2252,7 +2285,15 @@
                     
                       
                     
-                    <span class="site-state-item-count">9</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">13</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -2376,7 +2417,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共5.2k字</span>
+  <span class="post-count">博客全站共5.5k字</span>
 </div>
         
 <div class="busuanzi-count">
@@ -2863,11 +2904,11 @@
       
     
       
+    
+      
+    
+      
         
-      
-    
-      
-    
       
     
       

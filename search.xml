@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[python自带pdb调试]]></title>
+    <url>%2F2019%2F06%2F16%2Fpython%E8%87%AA%E5%B8%A6pdb%E8%B0%83%E8%AF%95%2F</url>
+    <content type="text"><![CDATA[使用pdb进行调试：#pdb 是 python 自带的一个包，为 python 程序提供了一种交互的源代码调试功能，主要特性包括设置断点、单步调试、进入函数调试、查看当前代码、查看栈片段、动态改变变量的值等。pdb 提供了一些常用的调试命令，详情见表 1。 命令 解释 break 或 b 设置断点 设置断点 continue 或 c 继续执行程序 list 或 l 查看当前行的代码段 step 或 s 进入函数 return 或 r 执行代码直到从当前函数返回 exit 或 q 中止并退出 next 或 n 执行下一行 pp 打印变量的值 help 帮助 1234567import pdb a = "aaa"pdb.set_trace() #下断点的地方b = "bbb"c = "ccc"final = a + b + c print final 复制上面代码，在ipython中执行，就能开始调试了，或者脚本文件直接运行也可。]]></content>
+      <categories>
+        <category>python小技巧</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>pdb</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[windows下pip换源]]></title>
+    <url>%2F2019%2F06%2F16%2Fwindows%E4%B8%8Bpip%E6%8D%A2%E6%BA%90%2F</url>
+    <content type="text"><![CDATA[打开appdata文件夹，在资源管理器的地址栏输入%appdata%后回车 新建一个pip文件夹，在pip文件夹里面新建一个配置文件pip.ini 在pip.ini中添加如下代码： 1234[global]timeout = 6000index-url = https://pypi.tuna.tsinghua.edu.cn/simpletrusted-host = pypi.tuna.tsinghua.edu.cn 这是换成清华的源，在国内还是挺快的。如果要换成公司的源的话，相应的把清华网站改成公司网站即可。 如豆瓣： 123[global] index-url = https://pypi.douban.com/simple [install]]]></content>
+      <categories>
+        <category>python小技巧</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>pip</tag>
+        <tag>windows</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[计算机漏洞安全相关的概念POC | EXP | VUL | CVE | 0DAY]]></title>
     <url>%2F2019%2F06%2F15%2F%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%BC%8F%E6%B4%9E%E5%AE%89%E5%85%A8%E7%9B%B8%E5%85%B3%E7%9A%84%E6%A6%82%E5%BF%B5POC-EXP-VUL-CVE-0DAY%2F</url>
     <content type="text"><![CDATA[1.POC ​ POC，Proof ofConcept，中文意思是“观点证明”。这个短语会在漏洞报告中使用，漏洞报告中的POC则是一段说明或者一个攻击的样例，使得读者能够确认这个漏洞是真实存在的。 2.EXP ​ EXP，Exploit**，中文意思是“漏洞利用”。意思是一段对漏洞如何利用的详细说明或者一个演示的漏洞攻击代码，可以使得读者完全了解漏洞的机理以及利用的方法。 3.VUL VUL，V**ulnerability的缩写，泛指漏洞。 4.CVE**漏洞编号 CVE 的英文全称是“Common Vulnerabilities &amp; Exposures”公共漏洞和暴露，例如CVE-2015-0057、CVE-1999-0001等等。CVE就好像是一个字典表，为广泛认同的信息安全漏洞或者已经暴露出来的弱点给出一个公共的名称。如果在一个漏洞报告中指明的一个漏洞，如果有**CVE名称，你就可以快速地在任何其它CVE兼容的数据库中找到相应修补的信息，解决安全问题。 可以在https://cve.mitre.org/网站根据漏洞的**CVE**编号搜索该漏洞的介绍。 也可以在中文社区http://www.scap.org.cn/上搜索关于漏洞的介绍 5.0DAY漏洞和0DAY**攻击 ​ 在计算机领域中，零日漏洞或零时差漏洞（英语：**Zero-dayexploit）通常是指还没有补丁的安全漏洞，而零日攻击或零时差攻击（英语：Zero-dayattack）则是指利用这种漏洞进行的攻击。提供该漏洞细节或者利用程序的人通常是该漏洞的发现者。零日漏洞的利用程序对网络安全具有巨大威胁，因此零日漏洞不但是黑客的最爱，掌握多少零日漏洞也成为评价黑客技术水平的一个重要参数。 零日漏洞及其利用代码不仅对犯罪黑客而言，具有极高的利用价值，一些国家间谍和网军部队，例如美国国家安全局和美国网战司令部也非常重视这些信息[1]。据路透社报告称美国政府是零日漏洞黑市的最大买家。]]></content>
