@@ -1,6 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[BFS和DFS算法原理（通俗易懂）]]></title>
+    <url>%2F2019%2F06%2F29%2FBFS%E5%92%8CDFS%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86%EF%BC%88%E9%80%9A%E4%BF%97%E6%98%93%E6%87%82%EF%BC%89%2F</url>
+    <content type="text"><![CDATA[DFS 算法 思想：一直往深处走，直到找到解或者走不下去为止 12345678DFS（dep，...) //dep代表目前DFS的深度&#123; if （找到解||走不下去了）&#123; ... return； &#125; 枚举下一种情况，DFS（dep+1..）&#125; BFS 算法通常用队列（先进先出FIFO）实现 123456789初始化队列Q.Q=&#123;起点s&#125;；标记s为己访问；while （Q非空） &#123; 取Q队首元素u； u出队； if （u==目标状态） &#123;...&#125; 所有与u相邻且未被访问的点进入队列； 标记u为已访问；&#125; DFS ：使用栈保存未被检测的结点，结点按照深度优先的次序被访问并依次被压入栈中，并以相反的次序出栈进行新的检测。 似于树的先根遍历 深搜例子：走迷宫，你没有办法用分身术来站在每个走过的位置。不撞南山不回头。 BFS ：使用队列保存未被检测的结点。结点按照宽度优先的次序被访问和进出队列。 类似于树的按层次遍历的过程 广搜例子：你的眼镜掉在地上以后，你趴在地板上找。你总是先摸最接近你的地方，如果没有，再摸远一-点的地方….]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>dfs</tag>
+        <tag>bfs</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[充分理解 python -m mod]]></title>
+    <url>%2F2019%2F06%2F28%2F%E5%85%85%E5%88%86%E7%90%86%E8%A7%A3-python-m-mod%2F</url>
+    <content type="text"><![CDATA[查看 Python 的 help 内容#12345$ python --help...-m mod : run library module as a script (terminates option list)# 直译就是按照脚本的方式执行模块... 有无 -m 参数的比较#121. python script.py # 直接执行脚本2. python -m script.py # 当做模块的方式执行，相当于 import 一般情况下，我们会想当然的认为，有无参数 -m 对程序会有不同的影响，但是很可惜，第二种写法是会在程序执行之后报错的。其正确的写法是：丢掉 .py 后缀。 首先直观的观察执行结果，Python 的版本是 3.6.3。 编写 script.py 脚本，内容如下： 123import sysprint(sys.path)print(sys.modules) 直接执行脚本 123$ python script.py['/home/ossifrage/workspaces/python-m', '/usr/lib/python36.zip', '/usr/lib/python3.6', ...]&#123;..., '__main__': &lt;module '__main__' from 'script.py'&gt;, ...&#125; 当做模块方式执行 123$ python -m script['', '/usr/lib/python36.zip', '/usr/lib/python3.6', ...]&#123;..., '__main__': &lt;module 'run' from '/home/ossifrage/workspaces/python-m/script.py'&gt;, ..., 'runpy': &lt;module 'runpy' from '/usr/lib/python3.6/runpy.py'&gt;, 'pkgutil': &lt;module 'pkgutil' from '/usr/lib/python3.6/pkgutil.py'&gt;&#125; 显示的内容还有很多，只突出显示出了不同的地方。 通过比较不同的地方，我们发现: 第一种方法——直接运行脚本，当前脚本所在的路径会加入到 sys.path 列表中，但是 sys.modules 字典中的 main 的路径不是绝对路径，只是脚本名称。 第二种方法——当做模块方式运行，当前脚本所在的路径不会加入到 sys.path 列表中，但是 sys.modules 字典中的 main 的路径是绝对路径，同时，还引入了 runpy 和 pkgutil 两个模块。 runpy 的用途：定位并执行该模块。主要用途在于实现命令行 -m 执行 python 模块的效果。 pkgutil 的用途：获取包里面的所有模块列表。pkgutil.get_data() 可读取包内任何文件内容。 模块的导入机制#其实，上面的内容涉及到了 Python 包模块的导入机制。 要理解模块的导入机制，得理解几个关键的名词。sys.path -&gt; sys.modules -&gt; &lt; module &gt;.dict。 sys.path：是一个列表。保存着模块的搜索路径。如果路径没有存在与该列表中，可使用 sys.path.append() 导入。 sys.modules: 是一个字典。所有加载到内存中的模块都存放在该字典中。当 import 一个模块的时候，首先会在这个字典中查找是否已经加载了目标模块。如果已加载，则将模块的名字加入到正在调用 import 的模块的 Local 命名空间（也就是&lt; module &gt;.dict)中。如果没有，则从 sys.path 查找，找到后载入内存，并加入到 sys.modules 字典，名称也将导入到当前模块的 Local 命名空间。]]></content>
+      <categories>
+        <category>python小技巧</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[VSCODE Python 控制台输出中文乱码,通过修改Cmd编码解决]]></title>
+    <url>%2F2019%2F06%2F27%2FVSCODE-Python-%E6%8E%A7%E5%88%B6%E5%8F%B0%E8%BE%93%E5%87%BA%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81-%E9%80%9A%E8%BF%87%E4%BF%AE%E6%94%B9Cmd%E7%BC%96%E7%A0%81%E8%A7%A3%E5%86%B3%2F</url>
+    <content type="text"><![CDATA[原因Windows 下的 cmd 和 powershell 默认是 GBK 编码显示输出内容， 这导致使用 UTF-8 的 Python 程序中的中文内容（包括注释、文档、和字符串字面量）会以不正确的解码方式输出成乱码内容。 解决办法Windows 内置了一个叫 “chcp” 的命令，它可以修改要显示的字符集编码的编号。UTF-8 的编号是 65001，所以启动 cmd 或者 powershell 以后可以手动输入：chcp 65001来改变编码。 启动 powershell 的时候带上修改编码的参数: “chcp.com 65001” 即可做到自动设置编码。设置如下: 选择：文件 – 首选项 – 用户设置，粘贴下面的配置键值到 json 中保存： “terminal.integrated.shellArgs.windows”: [“-NoExit”, “/c”, “chcp 65001”] 但是注意：仅靠修改代码页编号在 cmd 下仍然无法正常显示中文，需要进一步修改字体（有待考证）。ps:(当我用默认的cmd,没换成poweshell时候,)所以没有管 cmd 了，因为在 powershell 下是正常的。 修改 Terminal 选择：文件 – 首选项 – 用户设置，粘贴下面的配置键值到 json 中保存： “terminal.integrated.shell.windows”: “C:\WINDOWS\sysnative\WindowsPowerShell\v1.0\powershell.exe” 下面是网上的其他方法,全部尝试均无法修改. \1. 增加系统全局变量以 windows 系统为例，添加系统变量： PYTHONIOENCODING=UTF8\2. 修改 VSC 配置文件F1 键调出控制台，输入task,选择任务：配置任务运行程序,打开tasks.json文件，增加以下信息： “options”: {“env”:{“PYTHONIOENCODING”: “UTF-8”}}3.在代码里更改编码在每个需要中文的 python 文件中添加如下代码： import ioimport sys#改变标准输出的默认编码sys.stdout=io.TextIOWrapper(sys.stdout.buffer,encoding=’utf8′)]]></content>
+      <categories>
+        <category>python小技巧</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>vscode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[jupyter notebook 快捷键说明]]></title>
+    <url>%2F2019%2F06%2F27%2Fjupyter-notebook-%E5%BF%AB%E6%8D%B7%E9%94%AE%E8%AF%B4%E6%98%8E%2F</url>
+    <content type="text"><![CDATA[Jupyter Notebook 有两种键盘输入模式。编辑模式，允许你往单元中键入代码或文本；这时的单元框线是绿色的。命令模式，键盘输入运行程序命令；这时的单元框线是灰色。 命令模式 (按键 Esc 开启) Enter: 转入编辑模式 Shift-Enter: 运行本单元，选中下个单元 Ctrl-Enter: 运行本单元 Alt-Enter: 运行本单元，在其下插入新单元 Y: 单元转入代码状态 M:单元转入markdown状态 R: 单元转入raw状态 1: 设定 1 级标题 2: 设定 2 级标题 3: 设定 3 级标题 4: 设定 4 级标题 5: 设定 5 级标题 6: 设定 6 级标题 Up: 选中上方单元 K: 选中上方单元 Down: 选中下方单元 J: 选中下方单元 Shift-K: 扩大选中上方单元 Shift-J: 扩大选中下方单元 A: 在上方插入新单元 B: 在下方插入新单元 X: 剪切选中的单元 C: 复制选中的单元 Shift-V: 粘贴到上方单元 V: 粘贴到下方单元 Z: 恢复删除的最后一个单元 D,D: 删除选中的单元 Shift-M: 合并选中的单元 Ctrl-S: 文件存盘 S: 文件存盘 L: 转换行号 O: 转换输出 Shift-O: 转换输出滚动 Esc: 关闭页面 Q: 关闭页面 H: 显示快捷键帮助 I,I: 中断Notebook内核 0,0: 重启Notebook内核 Shift: 忽略 Shift-Space: 向上滚动 Space: 向下滚动 编辑模式 ( Enter 键启动) Tab: 代码补全或缩进 Shift-Tab: 提示 Ctrl-]: 缩进 Ctrl-[: 解除缩进 Ctrl-A: 全选 Ctrl-Z: 复原 Ctrl-Shift-Z: 再做 Ctrl-Y: 再做 Ctrl-Home: 跳到单元开头 Ctrl-Up: 跳到单元开头 Ctrl-End: 跳到单元末尾 Ctrl-Down: 跳到单元末尾 Ctrl-Left: 跳到左边一个字首 Ctrl-Right: 跳到右边一个字首 Ctrl-Backspace: 删除前面一个字 Ctrl-Delete: 删除后面一个字 Esc: 进入命令模式 Ctrl-M: 进入命令模式 Shift-Enter: 运行本单元，选中下一单元 Ctrl-Enter: 运行本单元 Alt-Enter: 运行本单元，在下面插入一单元 Ctrl-Shift—: 分割单元 Ctrl-Shift-Subtract: 分割单元 Ctrl-S: 文件存盘 Shift: 忽略 Up: 光标上移或转入上一单元 Down:光标下移或转入下一单元]]></content>
+      <categories>
+        <category>python小技巧</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>jupyter-notebook</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[形容词]]></title>
+    <url>%2F2019%2F06%2F23%2F%E5%BD%A2%E5%AE%B9%E8%AF%8D%2F</url>
+    <content type="text"><![CDATA[让感觉飞起来： 形容词 物的属性与构成#大小# big huge little small medium 高低# high low 长短# long short tall 深浅# deep shallow 粗细# thick thin fat slim 宽窄# narrow ride 重量# heavy light 正斜# straight curved flat 形状# round square 距离# near far 事物与空间# full empty blank bare dirty 时间# new fresh 数量# extra only single poor rich slight total 质地# hard soft tough tender smooth rough sharp blunt fresh raw pure plain even 力量 strong weak tight loose firm tense 状态# liquid gas solid 温度# hot warm cold cool 湿度# dry wet 亮度# bright dark dull 味道# sweet bitter delicious sour spicy 声音# loud quiet 人的属性与构成#时间# young old 身体# hungry ill sick tired blind sore born pregnant alive 行为# busy violent wild 外表# beautiful ugly sexy 心智# smart clever stupid]]></content>
+      <categories>
+        <category>1368个单词就够了</category>
+      </categories>
+      <tags>
+        <tag>口语</tag>
+        <tag>英语</tag>
+        <tag>背单词</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[世故型动词]]></title>
+    <url>%2F2019%2F06%2F23%2F%E4%B8%96%E6%95%85%E5%9E%8B%E5%8A%A8%E8%AF%8D%2F</url>
+    <content type="text"><![CDATA[世故性动词：朋友少，但效率高 看# find watch oberve ignore search show 说#意见# agree cancel let allow 告诉# claim warn introduce explain express confirm 要求# beg charge order 带有情感地说# argue blame praise encourage complain promise insist shout threat 其他# answer call count pronounce 想# consider guess deserve offer doubt suspect trust forget remember imagine mean learn understand wonder decide try want hope wish expect will shall should may might can must dare need impact attract 感觉# enjoy suffer appreciate care hate worry thank welcome bless thrill freak shock bother annoy disturb 自然现象# die live burn boil 人体行为#肢体# dance ride lie climb beat 上肢# hug 下肢# sit stand walk kick jump skip 面部# smile laugh cry 嘴巴# eat kiss suck lick blow cough sing 鼻子# breathe 皮肤# bleed 精神# sleep wake relax 健康# hurt injure cure inject 生活行为# cook bake fry drive measure wear wash tape record post travel screw dig hide pack mark 社会行为# buy sell shop pay spend waste invite rent fight kill steal cheat invest rob wait marry divorce borrow lend owe vote bet celebrate play pretend help direct entertain interupt distract design build invent copy prepare organize manage handle treat control use apply save choose accept pick collect win fail miss lose check examine compare solve analyze 运动# skate swim flyt shoot 工作# work interview hire fire compete retire 学习# read write spell translate 事物之间的关系# match qualify equal share include separate belong depend involve 事物的发展变化# change develop improve reduce add promote 事物相互作用# damage spoil ruin affect attack 总单词量 ： 219 个 类别 ： 14 个 世故性动词，主要是根据人的不同行为来分类的。这种分类有助于我们对近似的行为有一个大概的了解，并能帮助我们在需要的时候以最快的速度在这一类别的中找到所需要的词]]></content>
+      <categories>
+        <category>1368个单词就够了</category>
+      </categories>
+      <tags>
+        <tag>口语</tag>
+        <tag>英语</tag>
+        <tag>背单词</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[python自带pdb调试]]></title>
     <url>%2F2019%2F06%2F16%2Fpython%E8%87%AA%E5%B8%A6pdb%E8%B0%83%E8%AF%95%2F</url>
     <content type="text"><![CDATA[使用pdb进行调试：#pdb 是 python 自带的一个包，为 python 程序提供了一种交互的源代码调试功能，主要特性包括设置断点、单步调试、进入函数调试、查看当前代码、查看栈片段、动态改变变量的值等。pdb 提供了一些常用的调试命令，详情见表 1。 命令 解释 break 或 b 设置断点 设置断点 continue 或 c 继续执行程序 list 或 l 查看当前行的代码段 step 或 s 进入函数 return 或 r 执行代码直到从当前函数返回 exit 或 q 中止并退出 next 或 n 执行下一行 pp 打印变量的值 help 帮助 1234567import pdb a = "aaa"pdb.set_trace() #下断点的地方b = "bbb"c = "ccc"final = a + b + c print final 复制上面代码，在ipython中执行，就能开始调试了，或者脚本文件直接运行也可。]]></content>
