@@ -14,7 +14,7 @@
   <entry>
     <title><![CDATA[使用Android手机作为树莓派的屏幕或ssh命令行]]></title>
     <url>%2F2019%2F07%2F06%2F%E4%BD%BF%E7%94%A8Android%E6%89%8B%E6%9C%BA%E4%BD%9C%E4%B8%BA%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%96ssh%E5%91%BD%E4%BB%A4%E8%A1%8C%2F</url>
-    <content type="text"><![CDATA[树莓派一个 安卓智能手机一部 USB数据线一条（USB网络共享模式需要，热点模式不需要） 软件需要用到的有： JuiceSSH Termux VNC Viewer 首先在手机上安装JuiceSSH和androidVNC还有VNC Viewer，这个直接下载进行安装就可以了。 树莓派和手机互联可以有两种模式。 第一种：USB网络共享如下图所示，将树莓派和手机使用USB数据线连接起来，在手机上开启“USB网络共享”。 第二种模式：便携式WLAN热点 直接用手机给树莓派开热点，在树莓派上连接至该热点。在树莓派上再次执行ifconfig查看网络连接情况。 打开手机上的Termux，相当于手机版的linux命令行终端，然后执行 arp -a 就能看到树莓派的ip地址 打开JuiceSSH，输入相应的ip地址，端口默认22，最后输入密码，就成功命令行终端了。 或者是打开VNC Viewer，输入ip地址，默认端口为5900，格式如 192.168.1.100：：5900 ，连接后，输入账号密码，就可进入vnc界面了。]]></content>
+    <content type="text"><![CDATA[树莓派一个 安卓智能手机一部 USB数据线一条（USB网络共享模式需要，热点模式不需要） 软件需要用到的有： JuiceSSH Termux VNC Viewer 首先在手机上安装JuiceSSH和androidVNC还有VNC Viewer，这个直接下载进行安装就可以了。 树莓派和手机互联可以有两种模式。 第一种：USB网络共享如下图所示，将树莓派和手机使用USB数据线连接起来，在手机上开启“USB网络共享”。 第二种模式：便携式WLAN热点 直接用手机给树莓派开热点，在树莓派上连接至该热点。在树莓派上再次执行ifconfig查看网络连接情况。 打开手机上的Termux，相当于手机版的linux命令行终端，然后执行 arp -a 就能看到树莓派的ip地址 打开JuiceSSH，输入相应的ip地址，端口默认22，最后输入密码，就成功命令行终端了。 或者是打开VNC Viewer，输入ip地址，默认端口为5900，格式如 192.168.1.100：：5900 ，连接后，输入账号密码，就可进入vnc界面了。 PS : 这些操作并不是与树莓派直连的屏幕或命令行端口，而是在树莓派运行的基础上，又开了些窗口，来实现我们想要用手机控制树莓派的目的。]]></content>
       <categories>
         <category>树莓派小技巧</category>
       </categories>
