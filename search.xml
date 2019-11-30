@@ -1,6 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[pydoc:模块的联机帮助]]></title>
+    <url>%2F2019%2F11%2F30%2Fpydoc-%E6%A8%A1%E5%9D%97%E7%9A%84%E8%81%94%E6%9C%BA%E5%B8%AE%E5%8A%A9%2F</url>
+    <content type="text"><![CDATA[1.纯文本帮助#1pydoc [module] 2.HTML帮助#在线生存一个静态文件写至一个本地目录 1pydoc -w [module] 启动一个web服务器在线浏览文档 1pydoc -p 5000 将启动一个web服务器监听http://localhost:5000 这个服务器会在你浏览时动态生成文档。 使用b命令可以自动打开一个浏览器窗口，使用q会停止服务器。 3.交互式帮助#pydoc还为builtins增加了一个函数help()，可以从python解释器提示窗口访问同样的信息 1help(&apos;requests&apos;)]]></content>
+      <categories>
+        <category>python小技巧</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>pydoc</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[爬虫首选网站工具httpbin]]></title>
+    <url>%2F2019%2F07%2F15%2F%E7%88%AC%E8%99%AB%E9%A6%96%E9%80%89%E7%BD%91%E7%AB%99%E5%B7%A5%E5%85%B7httpbin%2F</url>
+    <content type="text"><![CDATA[爬虫首选必备工具 https://httpbin.org/ 一 使用条件: 1 有一定的网络基础知识, 2 能够明白网址,请求等基础术语 3 能够自己拼接网络地址 4 明白网址结构构成 5 有至少一种编程语言基础 二 使用情景: 1 当你需要急需一个网址进行get/post等请求方法的测试的时候 2 获取本机原始ip 3 获取UUID4 4 获取本次网络请求的user-agent 三 使用方法: https://httpbin.org/ 访问官方文档 使用你擅长的语言，与它的接口互动。 常见的有 /get /post 等 它会返回你爬虫时上传的内容 能够更好地验证你的爬虫代码能力 相同推荐 类似这种能够很方便调试接口的还有很多，但是无疑还是httpbin最好用。 requestb putsreq ttpresponder runscope]]></content>
+      <categories>
+        <category>python小技巧</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>httpbin</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Tex Live下载及安装说明]]></title>
+    <url>%2F2019%2F07%2F14%2FTex-Live%E4%B8%8B%E8%BD%BD%E5%8F%8A%E5%AE%89%E8%A3%85%E8%AF%B4%E6%98%8E%2F</url>
+    <content type="text"><![CDATA[关于 CTeX#CTeX 套装#CTeX 套装是科学院吴凌云研究员的个人作品。在 CTeX 套装刚刚问世之时，因其解决了繁琐的中文字体安装工作，所以广受欢迎。但是，一方面 CTeX 套装已经很久不更新，内里的宏包、工具陈旧；另一方面，随着 XeLaTeX 的发展，以及 xeCJK 等技术的成熟，上述这些繁琐的工作已经没有必要而失去意义；因此，现在不推荐使用 CTeX 套装。 不要安装和使用 CTeX 套装！ CTeX 宏集#虽然它的名字也是「CTeX」，但是 CTeX 宏集和 CTeX 套装是两个不同的东西。CTeX 宏集是集成了中文支持、操作系统判定、字体选择、版式预设为一体的一组宏包和文档类的合集。我们推荐在任何情况下，优先使用 CTeX 宏集处理中文。 请在任何情况下优先使用 CTeX 宏集在 LaTeX 中处理中文！ 关于 TeX Live#TeX Live 是 TUG (TeX User Group) 维护和发布的 TeX 系统，可说是「官方」的 TeX 系统。我们推荐任何阶段的 TeX 用户，都尽可能使用 TeX Live，以保持在跨操作系统平台、跨用户的一致性。TeX Live 的官方站点是 https://tug.org/texlive/。 Mac 用户#TeX Live 在 macOS/OS X 上的名字是 MacTeX，它的官方站点是 https://tug.org/mactex。你可以在这里下载 MacTeX 的安装器，而后安装 MacTeX。 http://tug.org/cgi-bin/mactex-download/MacTeX.pkg 如果你身处中国大陆，发现下载速度很慢，可以尝试清华大学和中国科技大学的镜像站。 https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/mac/mactex/MacTeX.pkg https://mirrors.ustc.edu.cn/CTAN/systems/mac/mactex/MacTeX.pkg 关于在 Mac 电脑上使用 MacTeX，你可能会希望阅读以下文章 Mac OS X 下的中文配置 Mac OS X 下如何使用常见的中文模板 Windows 和 linux 用户#TeX Live 的当前版本是 2019，你可以从官方站点下载它们的安装包。点击下列链接，将会「自动选择」距离你最近的镜像下载。 http://mirror.ctan.org/systems/texlive/Images/texlive2019.iso ——当然，这个自动选择可能不太靠谱。如果你身处中国大陆，发现下载速度很慢，可以尝试清华大学和中国科技大学的镜像站。 https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/Images/texlive2019.iso https://mirrors.ustc.edu.cn/CTAN/systems/texlive/Images/texlive2019.iso 你需要使用虚拟光驱软件（对于 Windows 8 及更高版本的微软用户，可以直接加载），加载下载得到的光盘镜像。而后，执行安装脚本，将 TeX Live 安装在你的系统中。 Windows 用户右键单击 install-tl-advanced.bat，以管理员权限执行； linux 用户执行 install-tl。]]></content>
+      <tags>
+        <tag>tex</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[正则表达式常见规则大全]]></title>
+    <url>%2F2019%2F07%2F12%2F%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%B8%B8%E8%A7%81%E8%A7%84%E5%88%99%E5%A4%A7%E5%85%A8%2F</url>
+    <content type="text"><![CDATA[很多不太懂正则的朋友，在遇到需要用正则校验数据时，往往是在网上去找很久，结果找来的还是不很符合要求。所以我最近把开发中常用的一些正则表达式整理了一下，在这里分享一下。给自己留个底，也给朋友们做个参考。 一、校验数字的表达式 12345678910111213141516171819 1 数字：^[0-9]*$ 2 n位的数字：^\d&#123;n&#125;$ 3 至少n位的数字：^\d&#123;n,&#125;$ 4 m-n位的数字：^\d&#123;m,n&#125;$ 5 零和非零开头的数字：^(0|[1-9][0-9]*)$ 6 非零开头的最多带两位小数的数字：^([1-9][0-9]*)+(.[0-9]&#123;1,2&#125;)?$ 7 带1-2位小数的正数或负数：^(\-)?\d+(\.\d&#123;1,2&#125;)?$ 8 正数、负数、和小数：^(\-|\+)?\d+(\.\d+)?$ 9 有两位小数的正实数：^[0-9]+(.[0-9]&#123;2&#125;)?$10 有1~3位小数的正实数：^[0-9]+(.[0-9]&#123;1,3&#125;)?$11 非零的正整数：^[1-9]\d*$ 或 ^([1-9][0-9]*)&#123;1,3&#125;$ 或 ^\+?[1-9][0-9]*$12 非零的负整数：^\-[1-9][]0-9&quot;*$ 或 ^-[1-9]\d*$13 非负整数：^\d+$ 或 ^[1-9]\d*|0$14 非正整数：^-[1-9]\d*|0$ 或 ^((-\d+)|(0+))$15 非负浮点数：^\d+(\.\d+)?$ 或 ^[1-9]\d*\.\d*|0\.\d*[1-9]\d*|0?\.0+|0$16 非正浮点数：^((-\d+(\.\d+)?)|(0+(\.0+)?))$ 或 ^(-([1-9]\d*\.\d*|0\.\d*[1-9]\d*))|0?\.0+|0$17 正浮点数：^[1-9]\d*\.\d*|0\.\d*[1-9]\d*$ 或 ^(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*))$18 负浮点数：^-([1-9]\d*\.\d*|0\.\d*[1-9]\d*)$ 或 ^(-(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*)))$19 浮点数：^(-?\d+)(\.\d+)?$ 或 ^-?([1-9]\d*\.\d*|0\.\d*[1-9]\d*|0?\.0+|0)$ 二、校验字符的表达式 123456789101112 1 汉字：^[\u4e00-\u9fa5]&#123;0,&#125;$ 2 英文和数字：^[A-Za-z0-9]+$ 或 ^[A-Za-z0-9]&#123;4,40&#125;$ 3 长度为3-20的所有字符：^.&#123;3,20&#125;$ 4 由26个英文字母组成的字符串：^[A-Za-z]+$ 5 由26个大写英文字母组成的字符串：^[A-Z]+$ 6 由26个小写英文字母组成的字符串：^[a-z]+$ 7 由数字和26个英文字母组成的字符串：^[A-Za-z0-9]+$ 8 由数字、26个英文字母或者下划线组成的字符串：^\w+$ 或 ^\w&#123;3,20&#125;$ 9 中文、英文、数字包括下划线：^[\u4E00-\u9FA5A-Za-z0-9_]+$10 中文、英文、数字但不包括下划线等符号：^[\u4E00-\u9FA5A-Za-z0-9]+$ 或 ^[\u4E00-\u9FA5A-Za-z0-9]&#123;2,20&#125;$11 可以输入含有^%&amp;&apos;,;=?$\&quot;等字符：[^%&amp;&apos;,;=?$\x22]+12 禁止输入含有~的字符：[^~\x22]+ 三、特殊需求表达式 123456789101112131415161718192021222324252627282930313233 1 Email地址：^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$ 2 域名：[a-zA-Z0-9][-a-zA-Z0-9]&#123;0,62&#125;(/.[a-zA-Z0-9][-a-zA-Z0-9]&#123;0,62&#125;)+/.? 3 InternetURL：[a-zA-z]+://[^\s]* 或 ^http://([\w-]+\.)+[\w-]+(/[\w-./?%&amp;=]*)?$ 4 手机号码：^(13[0-9]|14[0-9]|15[0-9]|16[0-9]|17[0-9]|18[0-9]|19[0-9])\d&#123;8&#125;$ (由于工信部放号段不定时，所以建议使用泛解析 ^([1][3,4,5,6,7,8,9])\d&#123;9&#125;$) 5 电话号码(&quot;XXX-XXXXXXX&quot;、&quot;XXXX-XXXXXXXX&quot;、&quot;XXX-XXXXXXX&quot;、&quot;XXX-XXXXXXXX&quot;、&quot;XXXXXXX&quot;和&quot;XXXXXXXX)：^(\(\d&#123;3,4&#125;-)|\d&#123;3.4&#125;-)?\d&#123;7,8&#125;$ 6 国内电话号码(0511-4405222、021-87888822)：\d&#123;3&#125;-\d&#123;8&#125;|\d&#123;4&#125;-\d&#123;7&#125; 7 18位身份证号码(数字、字母x结尾)：^((\d&#123;18&#125;)|([0-9x]&#123;18&#125;)|([0-9X]&#123;18&#125;))$ 8 帐号是否合法(字母开头，允许5-16字节，允许字母数字下划线)：^[a-zA-Z][a-zA-Z0-9_]&#123;4,15&#125;$ 9 密码(以字母开头，长度在6~18之间，只能包含字母、数字和下划线)：^[a-zA-Z]\w&#123;5,17&#125;$10 强密码(必须包含大小写字母和数字的组合，不能使用特殊字符，长度在8-10之间)：^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).&#123;8,10&#125;$ 11 日期格式：^\d&#123;4&#125;-\d&#123;1,2&#125;-\d&#123;1,2&#125;12 一年的12个月(01～09和1～12)：^(0?[1-9]|1[0-2])$13 一个月的31天(01～09和1～31)：^((0?[1-9])|((1|2)[0-9])|30|31)$ 14 钱的输入格式：15 1.有四种钱的表示形式我们可以接受:&quot;10000.00&quot; 和 &quot;10,000.00&quot;, 和没有 &quot;分&quot; 的 &quot;10000&quot; 和 &quot;10,000&quot;：^[1-9][0-9]*$ 16 2.这表示任意一个不以0开头的数字,但是,这也意味着一个字符&quot;0&quot;不通过,所以我们采用下面的形式：^(0|[1-9][0-9]*)$ 17 3.一个0或者一个不以0开头的数字.我们还可以允许开头有一个负号：^(0|-?[1-9][0-9]*)$ 18 4.这表示一个0或者一个可能为负的开头不为0的数字.让用户以0开头好了.把负号的也去掉,因为钱总不能是负的吧.下面我们要加的是说明可能的小数部分：^[0-9]+(.[0-9]+)?$ 19 5.必须说明的是,小数点后面至少应该有1位数,所以&quot;10.&quot;是不通过的,但是 &quot;10&quot; 和 &quot;10.2&quot; 是通过的：^[0-9]+(.[0-9]&#123;2&#125;)?$ 20 6.这样我们规定小数点后面必须有两位,如果你认为太苛刻了,可以这样：^[0-9]+(.[0-9]&#123;1,2&#125;)?$ 21 7.这样就允许用户只写一位小数.下面我们该考虑数字中的逗号了,我们可以这样：^[0-9]&#123;1,3&#125;(,[0-9]&#123;3&#125;)*(.[0-9]&#123;1,2&#125;)?$ 22 8.1到3个数字,后面跟着任意个 逗号+3个数字,逗号成为可选,而不是必须：^([0-9]+|[0-9]&#123;1,3&#125;(,[0-9]&#123;3&#125;)*)(.[0-9]&#123;1,2&#125;)?$ 23 备注：这就是最终结果了,别忘了&quot;+&quot;可以用&quot;*&quot;替代如果你觉得空字符串也可以接受的话(奇怪,为什么?)最后,别忘了在用函数时去掉去掉那个反斜杠,一般的错误都在这里24 xml文件：^([a-zA-Z]+-?)+[a-zA-Z0-9]+\\.[x|X][m|M][l|L]$25 中文字符的正则表达式：[\u4e00-\u9fa5]26 双字节字符：[^\x00-\xff] (包括汉字在内，可以用来计算字符串的长度(一个双字节字符长度计2，ASCII字符计1))27 空白行的正则表达式：\n\s*\r (可以用来删除空白行)28 HTML标记的正则表达式：&lt;(\S*?)[^&gt;]*&gt;.*?&lt;/\1&gt;|&lt;.*? /&gt; (网上流传的版本太糟糕，上面这个也仅仅能部分，对于复杂的嵌套标记依旧无能为力)29 首尾空白字符的正则表达式：^\s*|\s*$或(^\s*)|(\s*$) (可以用来删除行首行尾的空白字符(包括空格、制表符、换页符等等)，非常有用的表达式)30 腾讯QQ号：[1-9][0-9]&#123;4,&#125; (腾讯QQ号从10000开始)31 中国邮政编码：[1-9]\d&#123;5&#125;(?!\d) (中国邮政编码为6位数字)32 IP地址：\d+\.\d+\.\d+\.\d+ (提取IP地址时有用)33 IP地址：((?:(?:25[0-5]|2[0-4]\\d|[01]?\\d?\\d)\\.)&#123;3&#125;(?:25[0-5]|2[0-4]\\d|[01]?\\d?\\d))]]></content>
+      <categories>
+        <category>python小技巧</category>
+      </categories>
+      <tags>
+        <tag>正则表达式</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[vscode中使用python的相对路径问题]]></title>
+    <url>%2F2019%2F07%2F09%2Fvscode%E4%B8%AD%E4%BD%BF%E7%94%A8python%E7%9A%84%E7%9B%B8%E5%AF%B9%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98%2F</url>
+    <content type="text"><![CDATA[在使用vscode写python相对路径的时候经常会报错，于是就收集了以下的几种方法 首先，使用vscode打开main.py文件，点击 调试-&gt;打开配置 ，在打开的launch.json文件增加 “cwd”:”” ，加完之后，在我的电脑下该文件整体如下： 12345678910111213141516&#123; // 使用 IntelliSense 了解相关属性。 // 悬停以查看现有属性的描述。 // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387 &quot;version&quot;: &quot;0.2.0&quot;, &quot;configurations&quot;: [ &#123; &quot;name&quot;: &quot;Python: 当前文件&quot;, &quot;type&quot;: &quot;python&quot;, &quot;request&quot;: &quot;launch&quot;, &quot;program&quot;: &quot;$&#123;file&#125;&quot;, &quot;console&quot;: &quot;integratedTerminal&quot;, &quot;cwd&quot;:&quot;&quot; &#125; ]&#125; 手动chdir到当前路径 1234import os import sysos.chdir(sys.path[0])# 使用相对路径时，务必加入这三行 实在没有办法就只能使用绝对路径吧（不过这可能会涉及到隐私问题，不是很推荐）]]></content>
+      <categories>
+        <category>python小技巧</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>vscode</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[python制作简单词典]]></title>
     <url>%2F2019%2F07%2F09%2Fpython%E5%88%B6%E4%BD%9C%E7%AE%80%E5%8D%95%E8%AF%8D%E5%85%B8%2F</url>
     <content type="text"><![CDATA[需要用到的工具有： requests BeautifulSoup 其实就是简单的爬虫知识，并没有很难的地方 利用requests库访问能在线查询单词的网页 找到其中的 关键字 （即单词）是在什么时候，传输到服务器的 爬取已返回的结果 使用BeautifulSoup，筛选自己所需要的文本。 打印出结果 PS：思路 操作 这些 并没有特别难的地方，关键在于网络分析，在这个案例上是比较简单 下面贴上代码：]]></content>
@@ -85,7 +140,7 @@
   <entry>
     <title><![CDATA[形容词]]></title>
     <url>%2F2019%2F06%2F23%2F%E5%BD%A2%E5%AE%B9%E8%AF%8D%2F</url>
-    <content type="text"><![CDATA[让感觉飞起来： 形容词 物的属性与构成#大小# big huge little small medium 高低# high low 长短# long short tall 深浅# deep shallow 粗细# thick thin fat slim 宽窄# narrow ride 重量# heavy light 正斜# straight curved flat 形状# round square 距离# near far 事物与空间# full empty blank bare dirty 时间# new fresh 数量# extra only single poor rich slight total 质地# hard soft tough tender smooth rough sharp blunt fresh raw pure plain even 力量 strong weak tight loose firm tense 状态# liquid gas solid 温度# hot warm cold cool 湿度# dry wet 亮度# bright dark dull 味道# sweet bitter delicious sour spicy 声音# loud quiet 人的属性与构成#时间# young old 身体# hungry ill sick tired blind sore born pregnant alive 行为# busy violent wild 外表# beautiful ugly sexy 心智# smart clever stupid]]></content>
+    <content type="text"><![CDATA[让感觉飞起来： 形容词 物的属性与构成#大小# big huge little small medium 高低# high low 长短# long short tall 深浅# deep shallow 粗细# thick thin fat slim 宽窄# narrow ride 重量# heavy light 正斜# straight curved flat 形状# round square 距离# near far 事物与空间# full empty blank bare dirty 时间# new fresh 数量# extra only single poor rich slight total 质地# hard soft tough tender smooth rough sharp blunt fresh raw pure plain even 力量 strong weak tight loose firm tense 状态# liquid gas solid 温度# hot warm cold cool 湿度# dry wet 亮度# bright dark dull 味道# sweet bitter delicious sour spicy 声音# loud quiet 人的属性与构成#时间# young old 身体# hungry ill sick tired blind sore born pregnant alive 行为# busy violent wild 外表# beautiful ugly sexy 心智# smart clever stupid confused awake asleep familiar patient 态度# polite lazy honest rude brave aggressive 情感# interested curious pround sure confident 心情# happy glad sad upset sorry guilty calm afraid angry crazy mad excited bored disappointed jealous lonely 事的属性与构成#难度# easy hard difficult 时间# late due urgent efficient 可能性# possible available 安全性# dangerous safe 其他# wrong strict correct proper lucky fair successful 综合属性#品质（好）# good nice fine great perfect wonderful amazing excellent 品质（坏）# bad terrible awful 真实性# real true false fake 完整性# complete 精确性# exact specific 复杂性# complicated simple 其他# fun horrible weird strange comfortable incredible gross 事物关系#特殊性# special regular 一致性# same different 普遍性# typical normal common general popular average particular own 重要性# serious causal important main formal professional 必要性# necessary 关联性# free relative legal physical mental local native international cheap expensive separate public worth 总单词量：208个 类别：47个]]></content>
       <categories>
         <category>1368个单词就够了</category>
       </categories>
