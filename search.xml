@@ -1,6 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[pyecharts系列教材之区域划分（三）]]></title>
+    <url>%2F2019%2F12%2F07%2Fpyecharts%E7%B3%BB%E5%88%97%E6%95%99%E6%9D%90%E4%B9%8B%E5%8C%BA%E5%9F%9F%E5%88%92%E5%88%86%EF%BC%88%E4%B8%89%EF%BC%89%2F</url>
+    <content type="text"><![CDATA[这里给出的代码是一个贵州板块的一个区域划分的数据地图 1234567891011121314151617181920from pyecharts.charts import Mapfrom pyecharts import options as optscytyname = ['六盘水市', '安顺市', '毕节市', '贵阳市', '遵义市', '铜仁市', '黔东南苗族侗族自治州', '黔南布依族苗族自治州', '黔西南布依族苗族自治州']population = [9, 10, 21, 2, 11, 39, 28, 13, 7]map = Map()# 添加 对象名字 ，[地名，值]，maptype:用来选择地图板块map.add('2018年生源所在地', [list(z) for z in zip(cytyname1, population1)],maptype='贵州')# 在pyecharts 新版本下，配置项 都打包成类了，所以需要配合最新的官方文档来进行设置map.set_global_opts(title_opts=opts.TitleOpts(title="贵州地图"), # 设置标题 visualmap_opts=opts.VisualMapOpts(max_=40,is_piecewise=True),# 设置最大40为最高值，颜色是分段类型的 toolbox_opts=opts.ToolboxOpts(is_show=1)) # 显示工具栏map.set_series_opts(label_opts=opts.LabelOpts(is_show=True)) # 显示地名map.render() # 在当前目录下生成一个render.html 打开会有画好的区域地图]]></content>
+      <categories>
+        <category>python小技巧</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>pyecharts</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[pandas筛选数据（就像和数据库一样）]]></title>
+    <url>%2F2019%2F12%2F07%2Fpandas%E7%AD%9B%E9%80%89%E6%95%B0%E6%8D%AE%EF%BC%88%E5%B0%B1%E5%83%8F%E5%92%8C%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%80%E6%A0%B7%EF%BC%89%2F</url>
+    <content type="text"><![CDATA[序言#因为我自己经常使用python进行数据处理，所以记录一篇教程，忘记时又能随时来回顾哦，顺便又能复习一遍刚学的数据库，哈哈 本文将通过pandas实现SQL语法中的条件过滤、排序、关联、合并、更新、删除等简单等操作，使我们对这些的概念及理解能够更加透彻，更加得心应手。 演示数据集#本文采用安德森莺尾花卉（iris）数据集进行演示，iris数据集包含150个样本，对应数据集的每行数据。每行数据包含每个样本的四个特征和样本的类别信息，因此iris数据集是一个150行*5列的二维表。 我们可以UCI Iris dataset中获取或者使用from sklearn.datasets import load_iris 方式获取，为了演示方便我们只取其中部分数据，如下： 12345678910111213141516In [3]: load_iris()['data']Out[3]:array([[5.1, 3.5, 1.4, 0.2], [4.9, 3. , 1.4, 0.2], [4.7, 3.2, 1.3, 0.2], [4.6, 3.1, 1.5, 0.2], [5. , 3.6, 1.4, 0.2], [5.4, 3.9, 1.7, 0.4], [4.6, 3.4, 1.4, 0.3], [5. , 3.4, 1.5, 0.2], [4.4, 2.9, 1.4, 0.2], [4.9, 3.1, 1.5, 0.1], [5.4, 3.7, 1.5, 0.2], [4.8, 3.4, 1.6, 0.2], [4.8, 3. , 1.4, 0.1], [4.3, 3. , 1.1, 0.1], 对应的特征名字，如下： 123456In [7]: load_iris().feature_namesOut[7]:['sepal length (cm)', 'sepal width (cm)', 'petal length (cm)', 'petal width (cm)'] 接下来，我们就开始学习如何使用pandas实现SQL语法中条件过滤、排序、关联、合并、更新、删除等数据查询操作 字段查询 SELECT#1SELECT sl,sw,pl,pw FROM iris LIMIT 2; 如上SQL实现返回每行记录的sl，sw,pl,pw字段，仅返回2行记录。我们使用Pandas实现如上SQL的功能，代码如下： 12345678910In [10]: iris = pd.read_csv(load_iris().filename)In [14]: iris.columns = ['sl','sw','pl','pw','classes'] # 这里为了方便，重新命名了列名In [15]: search = iris[['sl','sw','pl','pw']].head(2)In [16]: print(search) sl sw pl pw0 5.1 3.5 1.4 0.21 4.9 3.0 1.4 0.2 简单的条件过滤查询 WHERE#1SELECT * FROM iris WHERE classes=1 LIMIT 2; 如上SQL实现了查询满足classes=1的记录，并返回2行。我们使用Pandas实现该SQL，代码如下： 12345In [17]: search = iris[iris['classes']==1].head(2) ...: print(search) sl sw pl pw classes50 7.0 3.2 4.7 1.4 151 6.4 3.2 4.5 1.5 1 多条件的与或过滤查询 WHERE AND|OR与关系&amp;#1SELECT * FROM iris WHERE classes=1 AND p1 &gt;= 5 LIMIT 2; 如上SQL实现查询同时满足classes=1和pl&gt;=5两个条件的记录，并返回2行。我们使用Pandas实现该SQL，代码如下： 12345In [19]: search = iris[(iris[&apos;classes&apos;]==1)&amp;(iris[&apos;pl&apos;]&gt;=5)].head(2) ...: print(search) sl sw pl pw classes77 6.7 3.0 5.0 1.7 183 6.0 2.7 5.1 1.6 1 或关系| 1SELECT * FROM iris WHERE sl&gt;=5 OR pl&gt;=5 LIMIT 2; 如上SQL实现查询满足sl&gt;=5或者pl&gt;=5任一条件的记录，返回2行。我们使用Pandas实现该SQL，代码如下： 12345In [20]: search = iris[(iris['sl']&gt;=5) | (iris['pl']&gt;=5)].head(2) ...: print(search) sl sw pl pw classes0 5.1 3.5 1.4 0.2 04 5.0 3.6 1.4 0.2 0 条件过滤 空值判断# 空判断 is null 1SELECT * FROM IRIS WHERE sl IS NULL; 如上SQL实现查询sl字段为NULL的记录，我们使用Pandas实现该SQL，代码如下： 12search = iris[iris[&apos;sl&apos;].isna()]print(search)# 因为数据集没有空值，所以不作演示了 非空判断 is not null 1SELECT * FROM iris WHERE sl IS NOT NULL; 如上SQL实现查询sl字段不为NULL的记录。我们使用Pandas实现该SQL，代码如下： 12345678In [23]: search = iris[iris[&apos;sl&apos;].notna()] ...: print(search.head(5)) # 只演示了前5条数据 sl sw pl pw classes0 5.1 3.5 1.4 0.2 01 4.9 3.0 1.4 0.2 02 4.7 3.2 1.3 0.2 03 4.6 3.1 1.5 0.2 04 5.0 3.6 1.4 0.2 0 排序 ORDER BY ASC|DESC#1SELECT * FROM iris WHERE sl&gt;=5 ORDER BY DESC classes; 如上SQL实现将满足sl字段值大于等于5的记录，按照classes降序排序。我们使用Pandas实现该SQL，代码如下： 12345678In [26]: sort = iris[(iris[&apos;sl&apos;]&gt;=5)].sort_values(by=&apos;classes&apos;,ascending=False) # asccending 默认为升序 ...: print(sort.head(5))# 只演示了前5条数据 sl sw pl pw classes149 5.9 3.0 5.1 1.8 2112 6.8 3.0 5.5 2.1 2123 6.3 2.7 4.9 1.8 2122 7.7 2.8 6.7 2.0 2121 5.6 2.8 4.9 2.0 2 更新 UPDATE#1UPDATE iris SET classes=2 WHERE pw=1.7 AND pl&gt;=2.5; 如上SQL实现将同时满足pw=1.7和pl&gt;=5的记录中的classes字段值更新为2。我们使用Pandas实现该SQL，代码如下： 123456789In [42]: print(iris[iris['pw']==1.7]) ...: iris.loc[(iris['pw']==1.7) &amp; (iris['pl']&gt;=5),'classes'] = 2 ...: print(iris[iris['pw']==1.7]) sl sw pl pw classes77 6.7 3.0 5.0 1.7 1106 4.9 2.5 4.5 1.7 2 sl sw pl pw classes77 6.7 3.0 5.0 1.7 2106 4.9 2.5 4.5 1.7 2 分组统计 GROUP BY#1SELECT classes,COUNT(*) FROM iris GROUP BY classes; 如上SQL实现根据classes进行分组，返classes 及每组数量。我们使用Pandas实现该SQL，代码如下： 1234567In [43]: search = iris.groupby('classes').size() ...: print(search)classes0 501 492 51dtype: int64 分组统计 聚合输出#1SELECT classes,avg(pl),max(sl) FROM iris GROUP BY classes; 如何SQL实现根据classes进行分组，返classes值，每个分组的pl平均值以及每个分组的sl最大值。我们使用Pandas实现该SQL，代码如下： 12345678In [44]: import numpy as np ...: search = iris.groupby(&apos;classes&apos;).agg(&#123;&apos;sl&apos;:np.max,&apos;pl&apos;:np.mean&#125;) ...: print(search) sl plclasses0 5.8 1.4620001 7.0 4.2448982 7.9 5.541176 删除#1DEKETE FROM iris WHERE pw=1.7 and pl&gt;=5; 如上SQL实现将同时满足pw=1.7和pl&gt;=5的记录删除。我们使用Pandas实现该SQL，代码如下： 123456789In [46]: drop = iris.drop(iris[(iris[&apos;pw&apos;]==1.7) &amp; (iris[&apos;pl&apos;]==5)].index) ...: ...: print(drop[drop[&apos;pw&apos;]&gt;1.6]) sl sw pl pw classes70 5.9 3.2 4.8 1.8 1100 6.3 3.3 6.0 2.5 2101 5.8 2.7 5.1 1.9 2102 7.1 3.0 5.9 2.1 2103 6.3 2.9 5.6 1.8 2]]></content>
+      <categories>
+        <category>pyhon数据分析</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>pandas</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[R语言入门之swirl（入门必玩的包）]]></title>
+    <url>%2F2019%2F12%2F06%2FR%E8%AF%AD%E8%A8%80%E5%85%A5%E9%97%A8%E4%B9%8Bswirl%EF%BC%88%E5%85%A5%E9%97%A8%E5%BF%85%E7%8E%A9%E7%9A%84%E5%8C%85%EF%BC%89%2F</url>
+    <content type="text"><![CDATA[非常好用的一个包#这是一个R包实现的交互教程。 用来学习R语言，及其统计相关课程的。 step 1.安装包#1install.packages("swirl") step 2. 你好！#加载包，并运行swirl()函数，然后我们就学习-&gt;练习-&gt;学习-&gt;练习，并且是互动的，好比调戏siri一般，还把R给学了。 1234567&gt; require(swirl)&gt; swirl()| Welcome to swirl! Please sign in. If you&apos;ve been here before, use the same| name as you did then. If you are new, call yourself something unique.What shall I call you? wukong 首先它会问你怎么称呼，我告诉它我叫 wukong。然后它会问我想干嘛： 123456789101112131415| Thanks, wukong. Let&apos;s cover a couple of quick housekeeping items before we begin| our first lesson. First of all, you should know that when you see &apos;...&apos;, that| means you should press Enter when you are done reading and ready to continue.... &lt;-- That&apos;s your cue to press Enter to continue| Also, when you see &apos;ANSWER:&apos;, the R prompt (&gt;), or when you are asked to| select from a list, that means it&apos;s your turn to enter a response, then press| Enter to continue.Select 1, 2, or 3 and press Enter1: Continue.2: Proceed.3: Let&apos;s get going! 我选3, 开始吧。 step 3. 选课# 首先我们要选课，好几个课可以选。 123456789101112131415| To begin, you must install a course. I can install a course for you from the| internet, or I can send you to a web page| (https://github.com/swirldev/swirl_courses) which will provide course options| and directions for installing courses yourself. (If you are not connected to| the internet, type 0 to exit.)1: R Programming: The basics of programming in R2: Regression Models: The basics of regression modeling in R3: Statistical Inference: The basics of statistical inference in R4: Exploratory Data Analysis: The basics of exploring data in R5: Don&apos;t install anything for me. I&apos;ll do it myself.Selection: 1 |==========================================| 100%| Course installed successfully! 在这里给大家解释一下课程 1: R Programming: The basics of programming in R -&gt; R编程基础2: Regression Models: The basics of regression modeling in R -&gt; 回归模型3: Statistical Inference: The basics of statistical inference in R -&gt; 统计推断4: Exploratory Data Analysis: The basics of exploring data in R -&gt; 数据分析5: Don’t install anything for me. I’ll do it myself. 既然是新手的话，那我们就选择1，R编程，于是它就会 开始下载 相关课程 step 4. 上课#12345678910111213141516171819202122232425262728293031Selection: 1 |============================================| 100%| Course installed successfully!| Please choose a course, or type 0 to exit swirl.1: R Programming2: Take me to the swirl course repository!Selection: 1| Please choose a lesson, or type 0 to return to| course menu. 1: Basic Building Blocks 2: Workspace and Files 3: Sequences of Numbers 4: Vectors 5: Missing Values 6: Subsetting Vectors 7: Matrices and Data Frames 8: Logic 9: Functions10: lapply and sapply11: vapply and tapply12: Looking at Data13: Simulation14: Dates and Times15: Base Graphics step 5.帮助提示#给你们一个常用函数提示 1234567891011121314| You can exit swirl and return to the R prompt (&gt;) at any time by pressing the Esc| key. If you are already at the prompt, type bye() to exit and save your progress.| When you exit properly, you&apos;ll see a short message letting you know you&apos;ve done so.| When you are at the R prompt (&gt;):| -- Typing skip() allows you to skip the current question.| -- Typing play() lets you experiment with R on your own; swirl will ignore what you| do...| -- UNTIL you type nxt() which will regain swirl&apos;s attention.| -- Typing bye() causes swirl to exit. Your progress will be saved.| -- Typing main() returns you to swirl&apos;s main menu.| -- Typing info() displays these options again.| Let&apos;s get started! R的话，不太像python，希望我们能一起学号吧！]]></content>
+      <categories>
+        <category>R语言</category>
+      </categories>
+      <tags>
+        <tag>R</tag>
+        <tag>swirl</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[pyecharts系列教材之地区区分（二）]]></title>
+    <url>%2F2019%2F12%2F04%2Fpyecharts%E7%B3%BB%E5%88%97%E6%95%99%E6%9D%90%E4%B9%8B%E5%9C%B0%E5%8C%BA%E5%8C%BA%E5%88%86%EF%BC%88%E4%BA%8C%EF%BC%89%2F</url>
+    <content type="text"><![CDATA[其中的地点定位，只支持 省名、市名、地名、区、县名不能有有其他的如：贵州凯里，则就无法识别 maptype ： 用于选择地图，支持中文，中国地图：china，贵州地图：贵州 所以这里推荐一个库 cpca 123456import cpca # 用于寻找该地的省份 或所属洲d = cpca.transform(cytyname2) # 要处理列名d.to_excel(r&apos;123.xlsx&apos;) # 将处理好的数据导出看成品# 因为已经处理好，所以不在展示# 因不能精确识别地图，所以进行 地名处理，只要地级市名# 因为没有作过多研究，所以查不到二级地名的话，也只能百度了 因为pyecharts只能识别具体的地名，所以我在网上找到这款第三方库进行处理，如果你们有更好的方法也行]]></content>
+      <categories>
+        <category>python小技巧</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>pyecharts</tag>
+        <tag>cpca</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[pyecharts系列教材之安装（一）]]></title>
+    <url>%2F2019%2F12%2F03%2Fpyecharts%E7%B3%BB%E5%88%97%E6%95%99%E6%9D%90%E4%B9%8B%E5%AE%89%E8%A3%85%EF%BC%88%E4%B8%80%EF%BC%89%2F</url>
+    <content type="text"><![CDATA[因为网上该库的教程较少，且官方文档没有具体的案例，不能快速的了解所有细节，而且我自身也需要该库来绘画数据地图，所以顺便写下这个教程，既是学习也是记录脚印，希望对后面的同学，也能起到帮助。 官方介绍## 支持 Python2.7，3.4+ 经开发团队决定，0.5.x 版本将不再进行维护，0.5.x 版本代码位于 05x 分支，文档位于 05x-docs.pyecharts.org。 # 仅支持 Python3.6+ 新版本系列将从 v1.0.0 开始，文档位于 pyecharts.org 如何安装# pip安装 1$ pip(3) install pyecharts 源码安装 12345$ git clone https://github.com/pyecharts/pyecharts.git$ cd pyecharts$ pip install -r requirements.txt$ python setup.py install# 或者执行 python install.py]]></content>
+      <categories>
+        <category>python小技巧</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>pyecharts</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[pip安装库失败--no such file]]></title>
+    <url>%2F2019%2F12%2F02%2Fpip%E5%AE%89%E8%A3%85%E5%BA%93%E5%A4%B1%E8%B4%A5-no-such-file%2F</url>
+    <content type="text"><![CDATA[windows安装可能会有很多问题，我们一定要学会看错误提示，并勇于解决。 先是用管理员模式打开命令行终端，再开始安装库 如果发现提示如下，是METADATA 的错误信息的话，那么只需找到这个文件粘贴到该目录下就可以了 该文件一般就在该地址附近，或者以前老版本的路径下 后续#至于是什么原因造成的呢？ 我也不是很清楚哦]]></content>
+      <categories>
+        <category>python小技巧</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>pip</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[pydoc:模块的联机帮助]]></title>
     <url>%2F2019%2F11%2F30%2Fpydoc-%E6%A8%A1%E5%9D%97%E7%9A%84%E8%81%94%E6%9C%BA%E5%B8%AE%E5%8A%A9%2F</url>
     <content type="text"><![CDATA[1.纯文本帮助#1pydoc [module] 2.HTML帮助#在线生存一个静态文件写至一个本地目录 1pydoc -w [module] 启动一个web服务器在线浏览文档 1pydoc -p 5000 将启动一个web服务器监听http://localhost:5000 这个服务器会在你浏览时动态生成文档。 使用b命令可以自动打开一个浏览器窗口，使用q会停止服务器。 3.交互式帮助#pydoc还为builtins增加了一个函数help()，可以从python解释器提示窗口访问同样的信息 1help(&apos;requests&apos;)]]></content>
