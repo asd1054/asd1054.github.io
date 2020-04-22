@@ -1,6 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[docker之镜像加速]]></title>
+    <url>%2F2020%2F02%2F11%2Fdocker%E4%B9%8B%E9%95%9C%E5%83%8F%E5%8A%A0%E9%80%9F%2F</url>
+    <content type="text"><![CDATA[这里给出教程是 Docker Toolbox 的用户 用的是阿里云的镜像，除了不能进行搜索，下载不受影响。 Docker Quickstart Terminal#1.先把之前默认机器删掉 1docker-machine rm default 2.这样才能建立新的不同名机器 1docker-machine create --engine-registry-mirror=https://pnpnp70e.mirror.aliyuncs.com -d virtualbox default 3.查看机器的环境配置 123docker-machine env defaulteval &quot;$(docker-machine env default)&quot;docker info 4.如果已经有虚拟机了，将如下脚本将mirror的配置添加到docker daemon的启动参数中 1234docker-machine ssh default &quot;echo &apos;EXTRA_ARGS=\&quot;--registry-mirror=https://yourcode.mirror.aliyuncs.com\&quot;&apos; | sudo tee -a /var/lib/boot2docker/profile&quot;EXTRA_ARGS=&quot;--registry-mirror=https://xxx.mirror.aliyuncs.com&quot;docker-machine restart default 重启后可能获得新的IP地址，你需要执行，不执行这一步将导致代理配置失效 12docker-machine env defaulteval $(docker-machine env default) Kitematic (Alpha)#1.点击左下角的docker cu 2.输入命令 1234567docker-machine ssh default sudo sed -i &quot;s|EXTRA_ARGS=&apos;|EXTRA_ARGS=&apos;--registry-mirror=【此处为你的加速地址】 |g&quot; /var/lib/boot2docker/profileexitdocker-machine restart default 这样重启Docker后就可以用国内的镜像来加速下载了。 用ssh模式登录虚拟机#1docker-machine ssh default 编辑配置，新增代理 12345sudo vi /var/lib/boot2docker/profileEXTRA_ARGS=&apos;--label provider=virtualbox--registry-mirror=http://f1361db2.m.daocloud.io&apos; 重启虚拟机 1docker-machine restart]]></content>
+      <categories>
+        <category>docker</category>
+      </categories>
+      <tags>
+        <tag>-Toolbox -docker</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[docker之创建jupyter]]></title>
+    <url>%2F2020%2F02%2F11%2Fdocker%E4%B9%8B%E5%88%9B%E5%BB%BAjupyter%2F</url>
+    <content type="text"><![CDATA[在家也是闲着，所以就想了一个远程敲程序的法子，你要先把你弄好的镜像上传在docker，配置好你需要的python库等等，然后打开在线实验室（这里需要你注册了，才能使用，阔能部分电脑需要梯子才能注册），再从网上把你设置好的镜像pull到实验室环境中，就可以正常运行。 https://labs.play-with-docker.com/ 先进入 docker的在线实验室，每次打开有4个小时的会话时长。 下载镜像 1docker pull wukong1054/jupyter 这是我在 jupyter/base-notebook 镜像的基础上，添加了密码 wukong 创建容器 1docker run -d -p 9527:9527 wukong1054/jupyter 这样就会在后台运行该服务器了，端口为9527 但是实验室只是模拟这个过程，所以具体的访问地址 用同他给你的地址就行 本地上搭建也是一样，经测试，不能使用127.0.0.1:9527 而是 需要 使用你的当前ip地址加上端口]]></content>
+      <categories>
+        <category>docker</category>
+      </categories>
+      <tags>
+        <tag>-docker -jupyter</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[使用yagmail发送邮件]]></title>
+    <url>%2F2020%2F01%2F12%2F%E4%BD%BF%E7%94%A8yagmail%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6%2F</url>
+    <content type="text"><![CDATA[简单3行代码就能发送一封邮件# 经测试，163邮箱有些问题很容易被识别成垃圾邮箱导致发不出去，所以这里使用QQ邮箱就好 123456789import yagmailyag = yagmail.SMTP( user="QQ号@qq.com", # 这里以QQ邮箱为例 password="你的qq邮箱密码", host='smtp.qq.com', port=465) # 密码 可以是临时的授权码 yag.send('要发送的qq邮箱',# 这里可以是qq邮箱列表，批量一起发送 '这是主题哦', '这里是邮箱内容' # 这里是内容也一样可以是列表，可用于发送附件 ) 参考文献 yagmail官网]]></content>
+      <categories>
+        <category>python小技巧</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>yagmail</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[1368个单词就够了--副词及其他]]></title>
+    <url>%2F2020%2F01%2F07%2F1368%E4%B8%AA%E5%8D%95%E8%AF%8D%E5%B0%B1%E5%A4%9F%E4%BA%86-%E5%89%AF%E8%AF%8D%E5%8F%8A%E5%85%B6%E4%BB%96%2F</url>
+    <content type="text"><![CDATA[英语的配角：副词及其他 副词#时间# now early just then recently ago already yet ever never forever 位置# here there 方向# away forth apart together aside 数量# extra alone 程度# quite much very well extremely almost enough 强调# actually especially absolutely certainly 速度# fast slow soon suddenly inmediately gradually 频率# again often usually always 顺序# finally eventually 转折# otherwise 可能性# probably perhaps maybe 递进# also too either neither else 引导# when where how why what 连词# #因果# because 转折# but though 并列# and 条件# if unless except 时间# while 选择# or whether 限定词#顺序# last next 数量# all any some both each either neither every few many much 指代# this that these those another such 代词# I you he she we they it 疑问代词# which who 冠词# a an the 感叹词# bye hello no yes pardon please wow damn 缩略词# Mr. Ms. 数词# zero one two three four five six seven eight nine ten hundred thousand million billion 总单词量：123个 类别：9个]]></content>
+      <categories>
+        <category>1368个单词就够了</category>
+      </categories>
+      <tags>
+        <tag>口语</tag>
+        <tag>英语</tag>
+        <tag>背单词</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[电台主播的练习方法]]></title>
+    <url>%2F2019%2F12%2F30%2F%E7%94%B5%E5%8F%B0%E4%B8%BB%E6%92%AD%E7%9A%84%E7%BB%83%E4%B9%A0%E6%96%B9%E6%B3%95%E2%80%99%2F</url>
+    <content type="text"><![CDATA[1.跑三圈，注意深呼吸#2.口部操，咬苹果状/活动嘴/活动舌头#3.气息/si的延长音/嘟/弹舌#4.a的延长音#5.嘿/哈/吼/贵州大学广播站#6.绕口令#7.读新闻#]]></content>
+      <categories>
+        <category>电台主播的练习方法</category>
+      </categories>
+      <tags>
+        <tag>电台主播的练习方法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[健身-减肚子]]></title>
+    <url>%2F2019%2F12%2F28%2F%E5%81%A5%E8%BA%AB-%E5%87%8F%E8%82%9A%E5%AD%90%2F</url>
+    <content type="text"><![CDATA[减肚子是技术活，要从多方面进行控制啊！以下，提供运动与饮食的两种方法，希望有用！ 瘦肚子秘籍 之 饮食有选择 想要减肚子，秀出马甲线，还得赶紧跟炸鸡、可乐、烧烤等高热量食品说byebye，进行适当的饮食控制。少吃容易堆积热量的食物，多吃低卡、排毒、促进肠胃蠕动、提升代谢的健康食品。 1. 多吃蔬果 宿便堆积、毒素囤积也会导致腰腹肥胖问题，因此定期排毒、多吃膳食纤维丰富果蔬很有必要，每天最好能吃五到九种蔬果。 另外，多喝乳酸菌饮品能加速肠胃活动机能，成功清走体内废物。饮食上可多选择麦类、蒜、洋葱、牛蒡、芦笋、西兰花、椰菜、甘蓝、西红柿、洋葱、柑橘或是大豆等。 果蔬中，苹果的纤维素含量比一般水果要高，并且苹果内含的一些果胶有助于大便变软，对排便很有帮助。还有番茄，具有瘦小腹冠军蔬果的称号，富含的食物纤维，可以吸附肠道内的多余脂肪，将油脂和毒素排出体外。 2.多吃粗谷类主食 全谷类食物也含有丰富的膳食纤维，这种非水溶性的纤维质本身就有刺激消化道运动的效果，而且它无法被消化酵素所分解，能在肠道中发挥清扫功效，增加粪便的体积将大肠曲折处的宿便刮除下来排出，有助清除毒素、排出宿便、减少腰腹脂肪堆积。 3.晚上六点前吃晚餐 专家说睡前4小时吃晚餐就不容易发胖。 但如果已经有小肚腩的人，不妨将晚餐安排在更早的晚上6点之前，让肠胃在睡前有充分的时间消化、排空，这样腹部才不会囤积脂肪，也才可能拥有平坦的小腹。 4.多吃蜂蜜促排便 便秘是造成小肚腩的主要原因之一，因此清肠排毒是减肚子的关键。喝蜂蜜水就是减肚子最有效的方法之一，蜂蜜含有大量的果糖，有润肠通便的作用。 每天摄入50克果糖，并喝下1000ml的清水，就能促进排便，防止小肚腩的形成。 甩肚腩修炼大法 之 运动来塑形 1.规律的有氧运动 有氧运动是最好的燃脂剂，建议以每周3-5次，每次30-50分钟的频率进行低强度的有氧运动即可。快走、慢跑、健身操、游泳、骑自行车等都是不错的运动方式，只要持之以恒都能达到不错的瘦身效果。 2.针对腰腹的局部训练，美化线条 卷腹▼ 健身领域常用“卷腹”来替代“仰卧起坐”，这是因为卷腹的标准更准确、姿势更科学、效果更实用。 初级可以15个一组，做3组，有一定基础后可以1组20~50个不定， 再根据需要做3~5组。 平板支撑▼ 平板支撑属于消耗式塑身，动作虽然简单但要调动全身肌肉，可以有效锻炼腹横肌。 初学者千万别和自己较劲，第一周可以从30秒练起，慢慢递增，一次能做到2分钟就能达到很好的效果。最好采用4组每组30秒的锻炼节奏以减轻负担，每组间歇不超过20秒。 保持腹部紧张状态▼ 平时要注意保持腹部紧张，可以做一些小动作，比如捡书动作、仰卧起坐等。 或者时刻记住保持腹部紧张状态，注意收紧腹部，抬头挺胸。每天都保持这样的状态，就能轻松甩掉腹部赘肉。 靠墙站▼ 在吃完晚餐后的半小时，可以夹紧臀部，把整个背部紧贴在墙壁上，臀部、背部、腿部、腰部、头、脖子等都尽量贴紧墙面。 几分钟后腰就会很很累，坚持15分钟。每天都做一次，一周就开始见到效果，不仅能瘦腰，而且腿部、脖子、脸部也能变瘦。]]></content>
+      <categories>
+        <category>健身</category>
+      </categories>
+      <tags>
+        <tag>健身</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[停更！！！]]></title>
     <url>%2F2019%2F12%2F12%2F%E5%81%9C%E6%9B%B4%EF%BC%81%EF%BC%81%EF%BC%81%2F</url>
     <content type="text"><![CDATA[1 因为快期末考试了 所以开始收心了，不在捣鼓，开始专心复习， 数学分析、应用回归分析、随机过程、抽样调查、会计学、R语言、mysql数据库 然后为了我自己的口才，也该开始找点兴趣来培养了，滑板，相声，等等。]]></content>
@@ -8,7 +77,7 @@
   <entry>
     <title><![CDATA[1368个单词就够了--介词]]></title>
     <url>%2F2019%2F12%2F08%2F1368%E4%B8%AA%E5%8D%95%E8%AF%8D%E5%B0%B1%E5%A4%9F%E4%BA%86-%E4%BB%8B%E8%AF%8D%2F</url>
-    <content type="text"><![CDATA[英语的灵魂 ： 介词# 动态位置#轨迹# across along past over up down through on off in out against 起点# from 终点# to toward for about 静态位置#点# at 点与点# by beside before after behind between around 点与平面# outside inside within 从属# of with without 时间# during since till 替代# instand as 比较# than as 整体与部分# besides among except including 因果# according to 其他# despite per 总单词量：48个 类别：14个 重要# 使用频率高 使用范围广]]></content>
+    <content type="text"><![CDATA[英语的灵魂 ： 介词# 动态位置# 轨迹# across along past over up down through on off in out against 起点# from 终点# to toward for about 静态位置#点# at 点与点# by beside before after behind between around 点与平面# outside inside within 从属# of with without 时间# during since till 替代# instand as 比较# than as 整体与部分# besides among except including 因果# according to 其他# despite per 总单词量：48个 类别：14个 重要# 使用频率高 使用范围广]]></content>
       <categories>
         <category>1368个单词就够了</category>
       </categories>
@@ -45,7 +114,7 @@
   <entry>
     <title><![CDATA[R语言入门之swirl（入门必玩的包）]]></title>
     <url>%2F2019%2F12%2F06%2FR%E8%AF%AD%E8%A8%80%E5%85%A5%E9%97%A8%E4%B9%8Bswirl%EF%BC%88%E5%85%A5%E9%97%A8%E5%BF%85%E7%8E%A9%E7%9A%84%E5%8C%85%EF%BC%89%2F</url>
-    <content type="text"><![CDATA[非常好用的一个包#这是一个R包实现的交互教程。 用来学习R语言，及其统计相关课程的。 step 1.安装包#1install.packages("swirl") step 2. 你好！#加载包，并运行swirl()函数，然后我们就学习-&gt;练习-&gt;学习-&gt;练习，并且是互动的，好比调戏siri一般，还把R给学了。 1234567&gt; require(swirl)&gt; swirl()| Welcome to swirl! Please sign in. If you&apos;ve been here before, use the same| name as you did then. If you are new, call yourself something unique.What shall I call you? wukong 首先它会问你怎么称呼，我告诉它我叫 wukong。然后它会问我想干嘛： 123456789101112131415| Thanks, wukong. Let&apos;s cover a couple of quick housekeeping items before we begin| our first lesson. First of all, you should know that when you see &apos;...&apos;, that| means you should press Enter when you are done reading and ready to continue.... &lt;-- That&apos;s your cue to press Enter to continue| Also, when you see &apos;ANSWER:&apos;, the R prompt (&gt;), or when you are asked to| select from a list, that means it&apos;s your turn to enter a response, then press| Enter to continue.Select 1, 2, or 3 and press Enter1: Continue.2: Proceed.3: Let&apos;s get going! 我选3, 开始吧。 step 3. 选课# 首先我们要选课，好几个课可以选。 123456789101112131415| To begin, you must install a course. I can install a course for you from the| internet, or I can send you to a web page| (https://github.com/swirldev/swirl_courses) which will provide course options| and directions for installing courses yourself. (If you are not connected to| the internet, type 0 to exit.)1: R Programming: The basics of programming in R2: Regression Models: The basics of regression modeling in R3: Statistical Inference: The basics of statistical inference in R4: Exploratory Data Analysis: The basics of exploring data in R5: Don&apos;t install anything for me. I&apos;ll do it myself.Selection: 1 |==========================================| 100%| Course installed successfully! 在这里给大家解释一下课程 1: R Programming: The basics of programming in R -&gt; R编程基础2: Regression Models: The basics of regression modeling in R -&gt; 回归模型3: Statistical Inference: The basics of statistical inference in R -&gt; 统计推断4: Exploratory Data Analysis: The basics of exploring data in R -&gt; 数据分析5: Don’t install anything for me. I’ll do it myself. 既然是新手的话，那我们就选择1，R编程，于是它就会 开始下载 相关课程 step 4. 上课#12345678910111213141516171819202122232425262728293031Selection: 1 |============================================| 100%| Course installed successfully!| Please choose a course, or type 0 to exit swirl.1: R Programming2: Take me to the swirl course repository!Selection: 1| Please choose a lesson, or type 0 to return to| course menu. 1: Basic Building Blocks 2: Workspace and Files 3: Sequences of Numbers 4: Vectors 5: Missing Values 6: Subsetting Vectors 7: Matrices and Data Frames 8: Logic 9: Functions10: lapply and sapply11: vapply and tapply12: Looking at Data13: Simulation14: Dates and Times15: Base Graphics step 5.帮助提示#给你们一个常用函数提示 1234567891011121314| You can exit swirl and return to the R prompt (&gt;) at any time by pressing the Esc| key. If you are already at the prompt, type bye() to exit and save your progress.| When you exit properly, you&apos;ll see a short message letting you know you&apos;ve done so.| When you are at the R prompt (&gt;):| -- Typing skip() allows you to skip the current question.| -- Typing play() lets you experiment with R on your own; swirl will ignore what you| do...| -- UNTIL you type nxt() which will regain swirl&apos;s attention.| -- Typing bye() causes swirl to exit. Your progress will be saved.| -- Typing main() returns you to swirl&apos;s main menu.| -- Typing info() displays these options again.| Let&apos;s get started! R的话，不太像python，希望我们能一起学号吧！]]></content>
+    <content type="text"><![CDATA[非常好用的一个包#这是一个R包实现的交互教程。 用来学习R语言，及其统计相关课程的。 step 1.安装包#1install.packages("swirl") step 2. 你好！#加载包，并运行swirl()函数，然后我们就学习-&gt;练习-&gt;学习-&gt;练习，并且是互动的，好比调戏siri一般，还把R给学了。 1234567&gt; require(swirl) # 等价 library(&apos;swirl&apos;)&gt; swirl()| Welcome to swirl! Please sign in. If you&apos;ve been here before, use the same| name as you did then. If you are new, call yourself something unique.What shall I call you? wukong 首先它会问你怎么称呼，我告诉它我叫 wukong。然后它会问我想干嘛： 123456789101112131415| Thanks, wukong. Let&apos;s cover a couple of quick housekeeping items before we begin| our first lesson. First of all, you should know that when you see &apos;...&apos;, that| means you should press Enter when you are done reading and ready to continue.... &lt;-- That&apos;s your cue to press Enter to continue| Also, when you see &apos;ANSWER:&apos;, the R prompt (&gt;), or when you are asked to| select from a list, that means it&apos;s your turn to enter a response, then press| Enter to continue.Select 1, 2, or 3 and press Enter1: Continue.2: Proceed.3: Let&apos;s get going! 我选3, 开始吧。 step 3. 选课# 首先我们要选课，好几个课可以选。 123456789101112131415| To begin, you must install a course. I can install a course for you from the| internet, or I can send you to a web page| (https://github.com/swirldev/swirl_courses) which will provide course options| and directions for installing courses yourself. (If you are not connected to| the internet, type 0 to exit.)1: R Programming: The basics of programming in R2: Regression Models: The basics of regression modeling in R3: Statistical Inference: The basics of statistical inference in R4: Exploratory Data Analysis: The basics of exploring data in R5: Don&apos;t install anything for me. I&apos;ll do it myself.Selection: 1 |==========================================| 100%| Course installed successfully! 在这里给大家解释一下课程 1: R Programming: The basics of programming in R -&gt; R编程基础2: Regression Models: The basics of regression modeling in R -&gt; 回归模型3: Statistical Inference: The basics of statistical inference in R -&gt; 统计推断4: Exploratory Data Analysis: The basics of exploring data in R -&gt; 数据分析5: Don’t install anything for me. I’ll do it myself. 既然是新手的话，那我们就选择1，R编程，于是它就会 开始下载 相关课程 step 4. 上课#12345678910111213141516171819202122232425262728293031Selection: 1 |============================================| 100%| Course installed successfully!| Please choose a course, or type 0 to exit swirl.1: R Programming2: Take me to the swirl course repository!Selection: 1| Please choose a lesson, or type 0 to return to| course menu. 1: Basic Building Blocks 2: Workspace and Files 3: Sequences of Numbers 4: Vectors 5: Missing Values 6: Subsetting Vectors 7: Matrices and Data Frames 8: Logic 9: Functions10: lapply and sapply11: vapply and tapply12: Looking at Data13: Simulation14: Dates and Times15: Base Graphics step 5.帮助提示#给你们一个常用函数提示 1234567891011121314| You can exit swirl and return to the R prompt (&gt;) at any time by pressing the Esc| key. If you are already at the prompt, type bye() to exit and save your progress.| When you exit properly, you&apos;ll see a short message letting you know you&apos;ve done so.| When you are at the R prompt (&gt;):| -- Typing skip() allows you to skip the current question.| -- Typing play() lets you experiment with R on your own; swirl will ignore what you| do...| -- UNTIL you type nxt() which will regain swirl&apos;s attention.| -- Typing bye() causes swirl to exit. Your progress will be saved.| -- Typing main() returns you to swirl&apos;s main menu.| -- Typing info() displays these options again.| Let&apos;s get started! R的话，不太像python，希望我们能一起学好吧！]]></content>
       <categories>
         <category>R语言</category>
       </categories>
@@ -57,7 +126,7 @@
   <entry>
     <title><![CDATA[pyecharts系列教材之地区区分（二）]]></title>
     <url>%2F2019%2F12%2F04%2Fpyecharts%E7%B3%BB%E5%88%97%E6%95%99%E6%9D%90%E4%B9%8B%E5%9C%B0%E5%8C%BA%E5%8C%BA%E5%88%86%EF%BC%88%E4%BA%8C%EF%BC%89%2F</url>
-    <content type="text"><![CDATA[其中的地点定位，只支持 省名、市名、地名、区、县名不能有有其他的如：贵州凯里，则就无法识别 maptype ： 用于选择地图，支持中文，中国地图：china，贵州地图：贵州 所以这里推荐一个库 cpca 123456import cpca # 用于寻找该地的省份 或所属洲d = cpca.transform(cytyname2) # 要处理列名d.to_excel(r&apos;123.xlsx&apos;) # 将处理好的数据导出看成品# 因为已经处理好，所以不在展示# 因不能精确识别地图，所以进行 地名处理，只要地级市名# 因为没有作过多研究，所以查不到二级地名的话，也只能百度了 因为pyecharts只能识别具体的地名，所以我在网上找到这款第三方库进行处理，如果你们有更好的方法也行]]></content>
+    <content type="text"><![CDATA[其中的地点定位，只支持 省名、市名、地名、区、县名不能有有其他的如：贵州凯里，则就无法识别 maptype ： 用于选择地图，支持中文，中国地图：china，贵州地图：贵州 所以这里推荐一个库 cpca 123456import cpca # 用于寻找该地的省份 或所属洲d = cpca.transform(cytyname2) # 要处理列名 cytyname2 是一个迭代列表的字符串d.to_excel(r&apos;123.xlsx&apos;) # 将处理好的数据导出看成品# 因为已经处理好，所以不在展示# 因不能精确识别地图，所以进行 地名处理，只要地级市名# 因为没有作过多研究，所以查不到二级地名的话，也只能百度了 因为pyecharts只能识别具体的地名，所以我在网上找到这款第三方库进行处理，如果你们有更好的方法也行]]></content>
       <categories>
         <category>python小技巧</category>
       </categories>

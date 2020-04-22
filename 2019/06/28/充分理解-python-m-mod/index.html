@@ -550,16 +550,16 @@
       
 
       
-        <h2><span id="cha-kan-python-de-help-nei-rong">查看 Python 的 help 内容</span><a href="#cha-kan-python-de-help-nei-rong" class="header-anchor">#</a></h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> python --help</span><br><span class="line">...</span><br><span class="line">-m mod : run library module as a script (terminates option list)</span><br><span class="line"><span class="meta">#</span>　直译就是按照脚本的方式执行模块</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+        <h2><span id="cha-kan-python-de-help-nei-rong">查看 Python 的 help 内容</span><a href="#cha-kan-python-de-help-nei-rong" class="header-anchor">#</a></h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> python --<span class="built_in">help</span></span></span><br><span class="line">...</span><br><span class="line">-m mod : run library module as a script (terminates option list)</span><br><span class="line"><span class="meta">#</span><span class="bash">　直译就是按照脚本的方式执行模块</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <h2><span id="you-wu-m-can-shu-de-bi-jiao">有无 <code>-m</code> 参数的比较</span><a href="#you-wu-m-can-shu-de-bi-jiao" class="header-anchor">#</a></h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1. python script.py # 直接执行脚本</span><br><span class="line">2. python -m script.py # 当做模块的方式执行，相当于 import</span><br></pre></td></tr></table></figure>
 <p>一般情况下，我们会想当然的认为，有无参数 <code>-m</code> 对程序会有不同的影响，但是很可惜，<strong>第二种写法是会在程序执行之后报错的</strong>。其正确的写法是：<strong>丢掉 .py 后缀</strong>。</p>
 <p>首先直观的观察执行结果，<strong>Python 的版本是 3.6.3</strong>。<br> 编写 <code>script.py</code> 脚本，内容如下：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">print(sys.path)</span><br><span class="line">print(sys.modules)</span><br></pre></td></tr></table></figure>
 <p>直接执行脚本</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> python script.py</span><br><span class="line">['/home/ossifrage/workspaces/python-m', '/usr/lib/python36.zip', '/usr/lib/python3.6', ...]</span><br><span class="line">&#123;..., '__main__': &lt;module '__main__' from 'script.py'&gt;, ...&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> python script.py</span></span><br><span class="line">['/home/ossifrage/workspaces/python-m', '/usr/lib/python36.zip', '/usr/lib/python3.6', ...]</span><br><span class="line">&#123;..., '__main__': &lt;module '__main__' from 'script.py'&gt;, ...&#125;</span><br></pre></td></tr></table></figure>
 <p>当做模块方式执行</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> python -m script</span><br><span class="line">['', '/usr/lib/python36.zip', '/usr/lib/python3.6', ...]</span><br><span class="line">&#123;..., '__main__': &lt;module 'run' from '/home/ossifrage/workspaces/python-m/script.py'&gt;, ..., 'runpy': &lt;module 'runpy' from '/usr/lib/python3.6/runpy.py'&gt;, 'pkgutil': &lt;module 'pkgutil' from '/usr/lib/python3.6/pkgutil.py'&gt;&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> python -m script</span></span><br><span class="line">['', '/usr/lib/python36.zip', '/usr/lib/python3.6', ...]</span><br><span class="line">&#123;..., '__main__': &lt;module 'run' from '/home/ossifrage/workspaces/python-m/script.py'&gt;, ..., 'runpy': &lt;module 'runpy' from '/usr/lib/python3.6/runpy.py'&gt;, 'pkgutil': &lt;module 'pkgutil' from '/usr/lib/python3.6/pkgutil.py'&gt;&#125;</span><br></pre></td></tr></table></figure>
 <p>显示的内容还有很多，只突出显示出了不同的地方。</p>
 <p>通过比较不同的地方，我们发现:</p>
 <p><strong>第一种方法——直接运行脚本，当前脚本所在的路径会加入到 sys.path 列表中，但是 sys.modules 字典中的 <strong>main</strong> 的路径不是绝对路径，只是脚本名称</strong>。</p>
@@ -757,7 +757,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">35</span>
+                    <span class="site-state-item-count">41</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -796,7 +796,13 @@
                     
                       
                     
-                    <span class="site-state-item-count">11</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">14</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -871,7 +877,17 @@
                     
                       
                     
-                    <span class="site-state-item-count">29</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">34</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -974,7 +990,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
@@ -1012,7 +1028,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共18k字</span>
+  <span class="post-count">博客全站共20.1k字</span>
 </div>
         
 <div class="busuanzi-count">
