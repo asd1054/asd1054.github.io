@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[解决github的发行包release下载问题]]></title>
+    <url>%2F2020%2F08%2F12%2F%E8%A7%A3%E5%86%B3github%E7%9A%84%E5%8F%91%E8%A1%8C%E5%8C%85release%E4%B8%8B%E8%BD%BD%E9%97%AE%E9%A2%98%2F</url>
+    <content type="text"><![CDATA[github下载发行包问题# 很多人都有这样的困惑，不能下载，或者需要点击多次都才只能下载，且网速也被限制在几kb/s左右。 常见的几种解决方法有： 1.梯子工具 ​ 这里就不论述了 2.借助第三方工具 https://d.serctl.com/ ​ 介绍的就是第二个，我在网上搜了很多终于发现这款在线工具，能够帮助我们解决github上的发行包的下载，不受限制，就能下载我们想要的内容了 使用方法# 复制发行包地址 粘贴 点击提交]]></content>
+      <tags>
+        <tag>github</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[docker之镜像加速]]></title>
     <url>%2F2020%2F02%2F11%2Fdocker%E4%B9%8B%E9%95%9C%E5%83%8F%E5%8A%A0%E9%80%9F%2F</url>
     <content type="text"><![CDATA[这里给出教程是 Docker Toolbox 的用户 用的是阿里云的镜像，除了不能进行搜索，下载不受影响。 Docker Quickstart Terminal#1.先把之前默认机器删掉 1docker-machine rm default 2.这样才能建立新的不同名机器 1docker-machine create --engine-registry-mirror=https://pnpnp70e.mirror.aliyuncs.com -d virtualbox default 3.查看机器的环境配置 123docker-machine env defaulteval &quot;$(docker-machine env default)&quot;docker info 4.如果已经有虚拟机了，将如下脚本将mirror的配置添加到docker daemon的启动参数中 1234docker-machine ssh default &quot;echo &apos;EXTRA_ARGS=\&quot;--registry-mirror=https://yourcode.mirror.aliyuncs.com\&quot;&apos; | sudo tee -a /var/lib/boot2docker/profile&quot;EXTRA_ARGS=&quot;--registry-mirror=https://xxx.mirror.aliyuncs.com&quot;docker-machine restart default 重启后可能获得新的IP地址，你需要执行，不执行这一步将导致代理配置失效 12docker-machine env defaulteval $(docker-machine env default) Kitematic (Alpha)#1.点击左下角的docker cu 2.输入命令 1234567docker-machine ssh default sudo sed -i &quot;s|EXTRA_ARGS=&apos;|EXTRA_ARGS=&apos;--registry-mirror=【此处为你的加速地址】 |g&quot; /var/lib/boot2docker/profileexitdocker-machine restart default 这样重启Docker后就可以用国内的镜像来加速下载了。 用ssh模式登录虚拟机#1docker-machine ssh default 编辑配置，新增代理 12345sudo vi /var/lib/boot2docker/profileEXTRA_ARGS=&apos;--label provider=virtualbox--registry-mirror=http://f1361db2.m.daocloud.io&apos; 重启虚拟机 1docker-machine restart]]></content>
