@@ -1,0 +1,20 @@
+[
+  {
+    "id": "vibe-coding-to-fullstack",
+    "title": "从 Vibe Coding 到全栈开发：我的 AI 编程学习路径",
+    "date": "2026-05-16",
+    "category": "AI",
+    "tags": ["Vibe Coding", "AI", "全栈开发"],
+    "summary": "分享从零开始学习 AI 辅助编程的完整路径，包含 Stage 1-3 的学习经验、实践感悟，以及给新手的实用建议。",
+    "file": "vibe-coding-to-fullstack.html"
+  },
+  {
+    "id": "multi-agent-system",
+    "title": "构建多 Agent 协作系统：DeerFlow + Ralph 工作法实践",
+    "date": "2026-05-15",
+    "category": "架构",
+    "tags": ["Agent", "DeerFlow", "Ralph", "多Agent"],
+    "summary": "深入解析多 Agent 协作系统的设计思路，包括任务路由、动态 Sub-Agent 调度、Ralph 质量迭代，以及基于 Paperclip 的技术实现。",
+    "file": "multi-agent-system.html"
+  }
+]

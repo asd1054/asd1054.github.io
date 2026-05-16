@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>博客 · 悟空</title>
+  <meta name="description" content="悟空的技术博客 — AI 开发、全栈技术、Agent 系统">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="/" class="nav-logo">🐵 悟空</a>
+      <div class="nav-links" id="navLinks">
+        <a href="/">首页</a>
+        <a href="/blog/" class="active">博客</a>
+        <a href="/#projects">项目</a>
+        <a href="/#contact">联系</a>
+      </div>
+      <button class="theme-toggle" id="themeToggle" aria-label="切换主题">
+        <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <button class="mobile-menu" id="mobileMenu" aria-label="菜单">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="blog-page-header">
+    <div class="container">
+      <h1>技术博客</h1>
+      <p>AI 开发 · 全栈技术 · Agent 系统 · 实践分享</p>
+    </div>
+  </div>
+
+  <section class="section" style="padding-top: 0;">
+    <div class="container">
+      <div class="blog-grid" id="blogList"></div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 悟空 · 用 ❤️ 和 AI 构建</p>
+    </div>
+  </footer>
+
+  <script>
+    // Theme toggle (same as main)
+    (function() {
+      const toggle = document.getElementById('themeToggle');
+      const saved = localStorage.getItem('theme') || 'light';
+      document.documentElement.setAttribute('data-theme', saved);
+      toggle.addEventListener('click', () => {
+        const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+      });
+    })();
+
+    // Mobile menu
+    (function() {
+      const btn = document.getElementById('mobileMenu');
+      const links = document.getElementById('navLinks');
+      btn.addEventListener('click', () => links.classList.toggle('open'));
+    })();
+
+    // Load all posts
+    fetch('/blog/posts.json')
+      .then(r => r.json())
+      .then(posts => {
+        const grid = document.getElementById('blogList');
+        grid.innerHTML = posts.map(post => `
+          <a href="/blog/${post.file}" class="blog-card fade-in">
+            <div class="blog-card-meta">
+              <span class="blog-card-category">${post.category}</span>
+              <span>${post.date}</span>
+            </div>
+            <h3>${post.title}</h3>
+            <p>${post.summary}</p>
+            <div class="blog-card-tags">
+              ${post.tags.map(t => `<span>${t}</span>`).join('')}
+            </div>
+          </a>
+        `).join('');
+      });
+  </script>
+</body>
+</html>

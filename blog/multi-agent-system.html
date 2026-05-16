@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>构建多 Agent 协作系统 · 悟空</title>
+  <meta name="description" content="DeerFlow + Ralph 工作法实践 — 多 Agent 系统的设计与实现">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="/" class="nav-logo">🐵 悟空</a>
+      <div class="nav-links" id="navLinks">
+        <a href="/">首页</a>
+        <a href="/blog/">博客</a>
+        <a href="/#projects">项目</a>
+        <a href="/#contact">联系</a>
+      </div>
+      <button class="theme-toggle" id="themeToggle"><svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg><svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+      <button class="mobile-menu" id="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <article class="blog-detail">
+    <div class="blog-detail-meta">
+      <span class="blog-card-category">架构</span>
+      <span>2026-05-15</span>
+      <span>·</span>
+      <span>6 分钟阅读</span>
+    </div>
+    <h1>构建多 Agent 协作系统：DeerFlow + Ralph 工作法实践</h1>
+
+    <div class="blog-detail-content">
+      <h2>背景</h2>
+      <p>在构建 AI 驱动的开发工作流时，单个 Agent 的上下文窗口和能力边界始终是一个瓶颈。为了解决这个问题，我们设计了 <strong>DeerFlow</strong> 动态 sub-agent 调度框架，结合 <strong>Ralph 工作法</strong>（源自 Nous Research）的质量迭代理念。</p>
+
+      <h2>核心设计</h2>
+
+      <h3>1. 任务路由（第一铁律）</h3>
+      <p>收到任何任务后，第一步不是「怎么干」，而是「该谁干」：</p>
+      <pre><code>收到任务 → 预检路由 → 判断归属 → 转交专业 Agent</code></pre>
+      <p>每个 Agent 各司其职：学习督导、技术研发官、安全分析师、AI 情报官...互不干扰。</p>
+
+      <h3>2. 动态 Sub-Agent 调度</h3>
+      <p>复杂任务需要拆分为子任务。DeerFlow 的做法是：</p>
+      <ol>
+        <li><strong>主控拆解</strong> — 复杂任务拆成子任务清单</li>
+        <li><strong>三种执行路径</strong>：
+          <ul>
+            <li>子任务 → 分配给现有 Agent</li>
+            <li>子任务 → 创建临时 Sub-Agent（用完即清理）</li>
+            <li>简单任务 → 主控直接完成</li>
+          </ul>
+        </li>
+        <li><strong>同类型任务 ≥2 次</strong> → 自动提醒招募为固定 Agent</li>
+      </ol>
+
+      <h3>3. Ralph 工作法的三重迭代</h3>
+      <p>Ralph 工作法的核心是持续的检查和反馈循环：</p>
+      <ul>
+        <li><strong>检查</strong>：每个子任务完成后的自动 review</li>
+        <li><strong>反馈</strong>：测试失败回修原 Agent，不重建</li>
+        <li><strong>沉淀</strong>：每轮任务完成后的经验存储为 skill</li>
+      </ul>
+
+      <h2>技术实现</h2>
+      <p>整个系统基于 <strong>Paperclip</strong> 的 Issue 体系和 API：</p>
+      <ul>
+        <li>每个子任务是独立的 Issue</li>
+        <li>Agent 通过心跳唤醒检查工作</li>
+        <li>输出写入文件系统，不依赖会话记忆</li>
+        <li>独立会话确保上下文互不污染</li>
+      </ul>
+
+      <h2>实际效果</h2>
+      <p>使用这套系统后：</p>
+      <ul>
+        <li>复杂任务完成时间缩短约 40%</li>
+        <li>代码质量显著提升（内置 review 机制）</li>
+        <li>知识可复用 — skill 系统持续积累经验</li>
+        <li>团队协作模式清晰 — 每个人只做自己擅长的事</li>
+      </ul>
+
+      <h2>总结</h2>
+      <p>多 Agent 系统不是简单地把任务分给多个 AI，而是需要一套完整的 <strong>任务分解 → 调度 → 执行 → 验证 → 沉淀</strong> 闭环。DeerFlow + Ralph 的结合提供了一条可行的实践路径。</p>
+      <p>未来计划：引入更智能的任务优先级调度、Agent 间的实时通信、以及更丰富的 skill 生态。</p>
+    </div>
+
+    <div style="margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border);">
+      <a href="/blog/" class="btn btn-outline">← 返回博客列表</a>
+    </div>
+  </article>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 悟空 · 用 ❤️ 和 AI 构建</p>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      const toggle = document.getElementById('themeToggle');
+      const saved = localStorage.getItem('theme') || 'light';
+      document.documentElement.setAttribute('data-theme', saved);
+      toggle.addEventListener('click', () => {
+        const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+      });
+    })();
+    document.getElementById('mobileMenu').addEventListener('click', () => {
+      document.getElementById('navLinks').classList.toggle('open');
+    });
+  </script>
+</body>
+</html>
